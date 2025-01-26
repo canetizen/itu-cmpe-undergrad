@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="generator" content="Docutils 0.16: http://docutils.sourceforge.net/"/>
+<title>Data</title>
+<meta name="author" content="H. Turgut Uyar"/>
+<script type="text/javascript" src="./mathjax/MathJax.js?config=TeX-AMS_CHTML"></script>
+<script defer src="./impress.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    impress().init();
+  }, false);
+</script>
+<script defer src="./rough-notation.iife.js"></script>
+<script>
+  function annotate(event, element, annotation_type, color) {
+    event.preventDefault();
+    const annot = RoughNotation.annotate(
+      element, { type: annotation_type, color: color }
+    );
+    annot.show();
+  }
+</script>
+<link rel="stylesheet" href="./itucs.css"/>
+</head>
+<body>
+<div data-height="1080" data-width="1920" id="impress">
+
+<div class="slide step" data-rel-x="1920" id="body-mass-index">
+<h2 class="title">Body Mass Index</h2>
+<div class="content">
+<ul>
+<li>measure for body leanness</li>
+</ul>
+<!--  -->
+<ul>
+<li><span>\(w\)</span>: weight (mass, kg)</li>
+<li><span>\(h\)</span>: height (m)</li>
+</ul>
+<div>
+\begin{equation*}
+bmi = \frac{w}{h^2}
+\end{equation*}
+</div>
+</div>
+</div>
+<div class="slide step" id="bmi-table">
+<h2 class="title">BMI Table</h2>
+<div class="content">
+<table class="smaller">
+<thead>
+<tr><th>category</th>
+<th>BMI range</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>severe thinness</td>
+<td>&lt; 16</td>
+</tr>
+<tr><td>moderate thinness</td>
+<td>16 - 17</td>
+</tr>
+<tr><td>mild thinness</td>
+<td>17 - 18.5</td>
+</tr>
+<tr><td>normal</td>
+<td><span onclick="annotate(event, this, 'box', 'orange')">18.5 - 25</span></td>
+</tr>
+<tr><td>overweight</td>
+<td>25 - 30</td>
+</tr>
+<tr><td>obese class I</td>
+<td>30 - 35</td>
+</tr>
+<tr><td>obese class II</td>
+<td>35 - 40</td>
+</tr>
+<tr><td>obese class III</td>
+<td>&gt; 40</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="slide step" id="data-type">
+<h2 class="title">Data Type</h2>
+<div class="content">
+<ul>
+<li>every piece of data has a type</li>
+</ul>
+<!--  -->
+<ul>
+<li>which values it can take</li>
+<li>which operations will be allowed on it</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="common-types">
+<h2 class="title">Common Types</h2>
+<div class="content">
+<ul>
+<li>numeric: integer, real</li>
+<li>string</li>
+<li>character</li>
+<li>boolean</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="real-numbers">
+<h2 class="title">Real Numbers</h2>
+<div class="content">
+<ul>
+<li>representing real numbers is difficult</li>
+</ul>
+<!--  -->
+<ul>
+<li><em>floating point</em>: effective but inaccurate</li>
+<li>fixed point: ineffective and uncommon</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="floating-point-inaccuracy">
+<h2 class="title">Floating Point Inaccuracy</h2>
+<div class="content">
+<ul>
+<li>inaccuracy due to representation</li>
+<li><p>example:</p>
+<p><span>\(0.1 + 0.2 = 0.30000000000000004\)</span></p>
+</li>
+</ul>
+<ul class="substep">
+<li>affects all programming languages</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="literal">
+<h2 class="title">Literal</h2>
+<div class="content">
+<ul>
+<li>value directly written into source code: <em>literal</em></li>
+<li>value determines type</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="numeric-literals">
+<h2 class="title">Numeric Literals</h2>
+<div class="content">
+<div class="column width-3-5">
+<ul>
+<li>digits without a point → integer</li>
+<li>digits with one point → floating point</li>
+<li>optional sign</li>
+</ul>
+</div>
+<div class="column width-2-5">
+<table>
+<thead>
+<tr><th>value</th>
+<th>type</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><code>42</code></td>
+<td>integer</td>
+</tr>
+<tr><td><code>-6</code></td>
+<td>integer</td>
+</tr>
+<tr><td><code>3.14159</code></td>
+<td>floating point</td>
+</tr>
+<tr><td><code>-1.5</code></td>
+<td>floating point</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="slide step" id="scientific-notation">
+<h2 class="title">Scientific Notation</h2>
+<div class="content">
+<ul>
+<li><code>E</code> notation for floating point: <code>mEn</code></li>
+<li><span>\(m \cdot 10^n\)</span></li>
+</ul>
+<table>
+<thead>
+<tr><th>value</th>
+<th>type</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><code>1E6</code></td>
+<td>floating point</td>
+</tr>
+<tr><td><code>3.14E-2</code></td>
+<td>floating point</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="slide step" id="text-literals">
+<h2 class="title">Text Literals</h2>
+<div class="content">
+<ul>
+<li>characters between double quotes → string</li>
+<li>character between single quotes → character</li>
+</ul>
+<div class="column width-1-2">
+<table>
+<thead>
+<tr><th>value</th>
+<th>type</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><code>&quot;Hello, world!&quot;</code></td>
+<td>string</td>
+</tr>
+<tr><td><code>'t'</code></td>
+<td>character</td>
+</tr>
+<tr><td><code>&quot;t&quot;</code></td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="substep column width-1-4">
+<table>
+<thead>
+<tr><th>value</th>
+<th>type</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><code>7</code></td>
+<td>integer</td>
+</tr>
+<tr><td><code>'7'</code></td>
+<td>character</td>
+</tr>
+<tr><td><code>&quot;7&quot;</code></td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="substep column width-1-4">
+<table>
+<thead>
+<tr><th>value</th>
+<th>type</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><code>&quot;&quot;</code></td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="slide step" id="expression">
+<h2 class="title">Expression</h2>
+<div class="content">
+<ul>
+<li><p>an <em>expression</em> is a construct</p>
+<ul>
+<li>that will be evaluated</li>
+<li>to produce a result</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="expression-types">
+<h2 class="title">Expression Types</h2>
+<div class="content">
+<ul>
+<li><p>type of result determines type of expression</p>
+<ul>
+<li>arithmetic</li>
+<li>boolean</li>
+<li>...</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="arithmetic-operators">
+<h2 class="title">Arithmetic Operators</h2>
+<div class="content">
+<div class="column width-1-3">
+<ul>
+<li><p>addition:</p>
+<p><code>38 + 4</code></p>
+</li>
+<li><p>subtraction:</p>
+<p><code>155 - 113</code></p>
+</li>
+<li><p>multiplication:</p>
+<p><code>6 * 7</code></p>
+</li>
+</ul>
+</div>
+<div class="column width-1-3">
+<ul>
+<li><p>division:</p>
+<p><code>126 / 3</code></p>
+</li>
+</ul>
+</div>
+<div class="column width-1-3">
+<ul>
+<li><p>unary minus (sign):</p>
+<p><code>-(-42)</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="slide step" id="precedence">
+<h2 class="title">Precedence</h2>
+<div class="content">
+<ul>
+<li><p>precedence as in mathematics</p>
+<ul>
+<li>unary minus</li>
+<li><code>*</code> and <code>/</code></li>
+<li><code>+</code> and <code>-</code></li>
+</ul>
+</li>
+</ul>
+<!--  -->
+<ul>
+<li>use parentheses to adjust computation order</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="operator-style">
+<h2 class="title">Operator Style</h2>
+<div class="content">
+<ul>
+<li>one space each on both sides of operator (except unary minus)</li>
+</ul>
+<div class="column width-1-2">
+<pre>5*1.28+3*17.32
+
+// prefer
+5 * 1.28 + 3 * 17.32</pre>
+</div>
+<div class="column width-1-2 substep">
+<pre>- (6 * 7)
+
+// prefer
+-(6 * 7)</pre>
+</div>
+</div>
+</div>
+<div class="slide step" id="parenthesis-style">
+<h2 class="title">Parenthesis Style</h2>
+<div class="content">
+<ul>
+<li>no space inside parentheses</li>
+</ul>
+<div class="column width-1-2">
+<pre>5 * ( 1.25 + 0.03 )
+
+// prefer
+5 * (1.25 + 0.03)</pre>
+</div>
+</div>
+</div>
+<div class="slide step" id="floating-point">
+<h2 class="title">Floating Point</h2>
+<div class="content">
+<div class="column width-1-2">
+<ul>
+<li><p>single precision:</p>
+<p><code>float</code></p>
+</li>
+<li><p>double precision:</p>
+<p><code>double</code></p>
+</li>
+<li><p>higher precision:</p>
+<p><code>long double</code></p>
+</li>
+</ul>
+</div>
+<div class="column width-1-2 substep">
+<ul>
+<li>prefer <code>double</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="slide step" id="variable">
+<h2 class="title">Variable</h2>
+<div class="content">
+<ul>
+<li><p>a <em>variable</em> is:</p>
+<ul>
+<li>a memory location (address)</li>
+<li>associated with a name (identifier)</li>
+<li>containing some information (value)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="understanding-variables">
+<h2 class="title">Understanding Variables</h2>
+<div class="content">
+<ul>
+<li><p>different from variables in mathematics</p>
+<ul>
+<li>mathematical variables are abstract</li>
+</ul>
+</li>
+</ul>
+<ul class="substep">
+<li>treated differently in different programming languages</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="using-variables">
+<h2 class="title">Using Variables</h2>
+<div class="content">
+<ul>
+<li>variables can be used in expressions</li>
+</ul>
+<pre>x + 4
+155 - x
+x * y
+-x</pre>
+</div>
+</div>
+<div class="slide step" id="variable-definition">
+<h2 class="title">Variable Definition</h2>
+<div class="content">
+<div class="column width-1-2">
+<ul>
+<li><p>defining a variable:</p>
+<ul>
+<li>its name</li>
+<li>its type</li>
+<li>optionally, its initial value</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="column width-1-2 substep">
+<ul>
+<li>syntax:</li>
+</ul>
+<pre><span onclick="annotate(event, this, 'box', 'orange')">type</span> <span onclick="annotate(event, this, 'box', 'orange')">name</span> = <span onclick="annotate(event, this, 'box', 'orange')">value</span>;</pre>
+<ul>
+<li>without initial value:</li>
+</ul>
+<pre>type name;</pre>
+</div>
+</div>
+</div>
+<div class="slide step" id="variable-definition-example">
+<h2 class="title">Variable Definition Example</h2>
+<div class="content">
+<pre>double weight = 65.3;</pre>
+<ul>
+<li>name: <code>weight</code></li>
+<li>type: <code>double</code></li>
+<li>initial value: <code>65.3</code></li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="variable-initialization">
+<h2 class="title">Variable Initialization</h2>
+<div class="content">
+<ul>
+<li>initial values are not required</li>
+</ul>
+<pre>double weight;</pre>
+<ul>
+<li>but strongly recommended</li>
+<li>uninitialized variables cause a warning</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="variable-comments">
+<h2 class="title">Variable Comments</h2>
+<div class="content">
+<ul>
+<li>adding helpful comments is good style</li>
+</ul>
+<pre>double weight = 65.3;  // mass, in kg</pre>
+</div>
+</div>
+<div class="slide step" id="multiple-definitions">
+<h2 class="title">Multiple Definitions</h2>
+<div class="content">
+<ul>
+<li>multiple variables can be defined in the same statement</li>
+<li>all of the same type</li>
+</ul>
+<pre>type name1 = value1, name2 = value2, ...;</pre>
+</div>
+</div>
+<div class="slide step" id="multiple-definition-example">
+<h2 class="title">Multiple Definition Example</h2>
+<div class="content">
+<pre>double weight = 65.3, height = 1.74;</pre>
+<div class="substep">
+<ul>
+<li>prefer defining one variable per statement</li>
+</ul>
+<pre>double weight = 65.3;  // mass, in kg
+double height = 1.74;  // in m</pre>
+</div>
+</div>
+</div>
+<div class="slide step" id="initial-values">
+<h2 class="title">Initial Values</h2>
+<div class="content">
+<ul>
+<li>initial value is an expression</li>
+<li>previously defined variable can be used</li>
+</ul>
+<pre>double weight = 65.3;  // mass, in kg
+double height = 1.74;  // in m
+double bmi = weight / (height * height);</pre>
+</div>
+</div>
+<div class="slide step" id="variable-names">
+<h2 class="title">Variable Names</h2>
+<div class="content">
+<ul>
+<li>using descriptive names is good style</li>
+<li><code>weight</code> is better than <code>w</code></li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="name-rules">
+<h2 class="title">Name Rules</h2>
+<div class="content">
+<ul>
+<li>only letters, digits, underscore</li>
+<li>must not start with digit</li>
+<li>reserved words aren't allowed</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="name-examples">
+<h2 class="title">Name Examples</h2>
+<div class="content">
+<table>
+<thead>
+<tr><th>name</th>
+<th>validity</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><code>w</code></td>
+<td>valid</td>
+</tr>
+<tr><td><code>weight1</code></td>
+<td>valid</td>
+</tr>
+<tr><td><code>1weight</code></td>
+<td>invalid: starts with digit</td>
+</tr>
+<tr><td><code>minor?</code></td>
+<td>invalid: contains question mark</td>
+</tr>
+<tr><td><code>return</code></td>
+<td>invalid: reserved word</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="slide step" id="case-sensitivity">
+<h2 class="title">Case Sensitivity</h2>
+<div class="content">
+<ul>
+<li>lowercase and uppercase names are not the same</li>
+</ul>
+<table>
+<thead>
+<tr><th>name</th>
+<th>validity</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><code>weight1</code></td>
+<td>valid</td>
+</tr>
+<tr><td><code>Weight1</code></td>
+<td>valid, but not same as <code>weight1</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="slide step" id="combining-words">
+<h2 class="title">Combining Words</h2>
+<div class="content">
+<ul>
+<li>combine words with underscore</li>
+</ul>
+<table>
+<thead>
+<tr><th>name</th>
+<th>validity</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><code>body_mass_index</code></td>
+<td>valid</td>
+</tr>
+<tr><td><code>body mass index</code></td>
+<td>invalid: contains space</td>
+</tr>
+<tr><td><code>body-mass-index</code></td>
+<td>invalid: contains dash</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="slide step" id="naming-style">
+<h2 class="title">Naming Style</h2>
+<div class="content">
+<ul>
+<li>prefer underscores to capitalization</li>
+</ul>
+<table>
+<thead>
+<tr><th>name</th>
+<th>validity</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><code>body_mass_index</code></td>
+<td>valid, recommended</td>
+</tr>
+<tr><td><code>bodyMassIndex</code></td>
+<td>valid, but not common C style</td>
+</tr>
+<tr><td><code>BodyMassIndex</code></td>
+<td>valid, but at least start with lowercase</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="slide step" id="printing-variables">
+<h2 class="title">Printing Variables</h2>
+<div class="content">
+<ul>
+<li><code>printf</code> function can print variable values</li>
+</ul>
+<!--  -->
+<ul>
+<li>every <code>%</code> in string refers to a variable: <em>format specifier</em></li>
+<li>variables listed in same order as in string</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="print-syntax">
+<h2 class="title">Print Syntax</h2>
+<div class="content">
+<pre>printf(&quot;... <span onclick="annotate(event, this, 'box', 'orange')">%spec1</span> ... <span onclick="annotate(event, this, 'box', 'blue')">%spec2</span> ...&quot;, <span onclick="annotate(event, this, 'box', 'orange')">var1</span>, <span onclick="annotate(event, this, 'box', 'blue')">var2</span>, ...);</pre>
+<ul>
+<li><code>%spec1</code> specifies <code>var1</code>,
+<code>%spec2</code> specifies <code>var2</code>, ...</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="floating-point-formatting">
+<h2 class="title">Floating Point Formatting</h2>
+<div class="content">
+<div class="column width-1-2">
+<ul>
+<li><p>specifier:</p>
+<p><code>%f</code></p>
+</li>
+<li><p><code>n</code> digits after decimal point:</p>
+<p><code>%.nf</code></p>
+</li>
+<li><code>n</code> digits after decimal point,<br/>
+<code>m</code> in total (including point):<br/>
+<p><code>%m.nf</code></p>
+</li>
+</ul>
+</div>
+<div class="column width-1-2 substep">
+<ul>
+<li>value not changed,<br/>
+only formatted for display<br/>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="slide step" id="floating-point-output-examples">
+<h2 class="title">Floating Point Output Examples</h2>
+<div class="content">
+<pre>printf(&quot;%f\n&quot;, bmi);</pre>
+<div class="column width-1-2 substep">
+<ul>
+<li><span onclick="annotate(event, this, 'box', 'orange')">one</span> digit after decimal point:<br/>
+<br/>
+</li>
+</ul>
+<pre>printf(&quot;%<span onclick="annotate(event, this, 'box', 'orange')">.1</span>f\n&quot;, bmi);</pre>
+</div>
+<div class="column width-1-2 substep">
+<ul>
+<li>one digit after decimal point,<br/>
+<span onclick="annotate(event, this, 'box', 'orange')">four</span> characters in total:<br/>
+</li>
+</ul>
+<pre>printf(&quot;%<span onclick="annotate(event, this, 'box', 'orange')">4</span>.1f\n&quot;, bmi);</pre>
+</div>
+</div>
+</div>
+<div class="slide step" id="mixed-output">
+<h2 class="title">Mixed Output</h2>
+<div class="content">
+<ul>
+<li>parts other than format specifiers printed as is</li>
+</ul>
+<pre>printf(&quot;Body mass index: %.1f\n&quot;, bmi);</pre>
+</div>
+</div>
+<div class="slide step" id="bmi-program">
+<h2 class="title">BMI Program</h2>
+<div class="content">
+<pre class="code c smaller"><code><span class="comment multiline">/*
+ * This program calculates and prints
+ * the body mass index of a person
+ * who weighs 65.3kg and is 1.74m tall.
+ */</span>
+
+<span class="comment preproc">#include</span> <span class="comment preprocfile">&lt;stdio.h&gt;</span><span class="comment single">  // printf</span><span class="comment preproc">
+</span>
+<span class="keyword type">int</span> <span class="name function">main</span><span class="punctuation">()</span> <span class="punctuation">{</span>
+    <span class="keyword type">double</span> <span class="name">weight</span> <span class="operator">=</span> <span class="literal number float">65.3</span><span class="punctuation">;</span>  <span class="comment single">// mass, in kg
+</span>    <span class="keyword type">double</span> <span class="name">height</span> <span class="operator">=</span> <span class="literal number float">1.74</span><span class="punctuation">;</span>  <span class="comment single">// in m
+</span>    <span class="keyword type">double</span> <span class="name">bmi</span> <span class="operator">=</span> <span class="name">weight</span> <span class="operator">/</span> <span class="punctuation">(</span><span class="name">height</span> <span class="operator">*</span> <span class="name">height</span><span class="punctuation">);</span>
+    <span class="name">printf</span><span class="punctuation">(</span><span class="literal string">&quot;Body mass index: %.1f</span><span class="literal string escape">\n</span><span class="literal string">&quot;</span><span class="punctuation">,</span> <span class="name">bmi</span><span class="punctuation">);</span>
+    <span class="keyword">return</span> <span class="literal number integer">0</span><span class="punctuation">;</span>
+<span class="punctuation">}</span></code></pre>
+<div class="step" data-rel-x="-192" data-rel-y="108" data-rel-z="-300">
+</div><div class="step" data-rel-x="192" data-rel-y="-108" data-rel-z="300">
+</div></div>
+</div>
+<div class="slide step" data-rel-x="1920" data-rel-y="0" data-rel-z="0" id="printing-expressions">
+<h2 class="title">Printing Expressions</h2>
+<div class="content">
+<ul>
+<li>format specifiers correspond to expressions, not variables</li>
+<li>result of calculation can be printed without assigning to variable</li>
+</ul>
+<pre class="code c smaller"><code><span class="keyword type">int</span> <span class="name function">main</span><span class="punctuation">()</span> <span class="punctuation">{</span>
+    <span class="keyword type">double</span> <span class="name">weight</span> <span class="operator">=</span> <span class="literal number float">65.3</span><span class="punctuation">;</span>  <span class="comment single">// mass, in kg
+</span>    <span class="keyword type">double</span> <span class="name">height</span> <span class="operator">=</span> <span class="literal number float">1.74</span><span class="punctuation">;</span>  <span class="comment single">// in m
+</span>    <span class="name">printf</span><span class="punctuation">(</span><span class="literal string">&quot;Body mass index: %.1f</span><span class="literal string escape">\n</span><span class="literal string">&quot;</span><span class="punctuation">,</span> <span class="name">weight</span> <span class="operator">/</span> <span class="punctuation">(</span><span class="name">height</span> <span class="operator">*</span> <span class="name">height</span><span class="punctuation">));</span>
+    <span class="keyword">return</span> <span class="literal number integer">0</span><span class="punctuation">;</span>
+<span class="punctuation">}</span></code></pre>
+<div class="step" data-rel-x="-192" data-rel-y="0" data-rel-z="-300">
+</div><div class="step" data-rel-x="192" data-rel-y="0" data-rel-z="300">
+</div></div>
+</div>
+<div class="slide step" data-rel-x="1920" data-rel-y="0" data-rel-z="0" id="data-input">
+<h2 class="title">Data Input</h2>
+<div class="content">
+<ul>
+<li>most programs will need to get data from the user</li>
+<li>working on fixed data: <em>hard-coded</em></li>
+</ul>
+<ul class="substep">
+<li>get inputs</li>
+<li>process inputs and generate outputs</li>
+<li>print outputs</li>
+</ul>
+</div>
+</div>
+<div class="slide step" data-rel-x="1920" data-rel-y="0" data-rel-z="0" id="input-function">
+<h2 class="title">Input Function</h2>
+<div class="content">
+<ul>
+<li><code>scanf</code> function reads data from user</li>
+<li>and stores it in a variable</li>
+<li>variable has to be defined before input</li>
+</ul>
+<!--  -->
+<ul>
+<li>format specification similar to <code>printf</code></li>
+<li>also defined in <code>stdio.h</code></li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="prompt">
+<h2 class="title">Prompt</h2>
+<div class="content">
+<ul>
+<li><code>scanf</code> doesn't print <span onclick="annotate(event, this, 'underline', 'orange')">prompt</span></li>
+<li>use <code>printf</code> to print prompt first</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="floating-point-input">
+<h2 class="title">Floating Point Input</h2>
+<div class="content">
+<ul>
+<li><p>specifier for <code>double</code>:</p>
+<p><code>%lf</code></p>
+</li>
+<li><code>&amp;</code> in front of variable name</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="input-example">
+<h2 class="title">Input Example</h2>
+<div class="content">
+<pre>double weight = <span onclick="annotate(event, this, 'box', 'orange')">0.0</span>;  // mass, in kg
+printf(&quot;Enter weight (in kg):<span onclick="annotate(event, this, 'box', 'orange')"> </span>&quot;);
+scanf(&quot;<span onclick="annotate(event, this, 'box', 'orange')">%lf</span>&quot;, &amp;weight);</pre>
+</div>
+</div>
+<div class="slide step" id="id7">
+<h2 class="title">BMI Program</h2>
+<div class="content">
+<pre class="code c smallest"><code><span class="comment multiline">/*
+ * This program calculates and prints
+ * the body mass index of a person
+ * whose weight and height are given by the user.
+ */</span>
+
+<span class="comment preproc">#include</span> <span class="comment preprocfile">&lt;stdio.h&gt;</span><span class="comment single">  // printf, scanf</span><span class="comment preproc">
+</span>
+<span class="keyword type">int</span> <span class="name function">main</span><span class="punctuation">()</span> <span class="punctuation">{</span>
+    <span class="keyword type">double</span> <span class="name">weight</span> <span class="operator">=</span> <span class="literal number float">0.0</span><span class="punctuation">;</span>  <span class="comment single">// mass, in kg
+</span>    <span class="name">printf</span><span class="punctuation">(</span><span class="literal string">&quot;Enter weight (in kg): &quot;</span><span class="punctuation">);</span>
+    <span class="name">scanf</span><span class="punctuation">(</span><span class="literal string">&quot;%lf&quot;</span><span class="punctuation">,</span> <span class="operator">&amp;</span><span class="name">weight</span><span class="punctuation">);</span>
+
+    <span class="keyword type">double</span> <span class="name">height</span> <span class="operator">=</span> <span class="literal number float">0.0</span><span class="punctuation">;</span>  <span class="comment single">// in m
+</span>    <span class="name">printf</span><span class="punctuation">(</span><span class="literal string">&quot;Enter height (in m): &quot;</span><span class="punctuation">);</span>
+    <span class="name">scanf</span><span class="punctuation">(</span><span class="literal string">&quot;%lf&quot;</span><span class="punctuation">,</span> <span class="operator">&amp;</span><span class="name">height</span><span class="punctuation">);</span>
+
+    <span class="keyword type">double</span> <span class="name">bmi</span> <span class="operator">=</span> <span class="name">weight</span> <span class="operator">/</span> <span class="punctuation">(</span><span class="name">height</span> <span class="operator">*</span> <span class="name">height</span><span class="punctuation">);</span>
+    <span class="name">printf</span><span class="punctuation">(</span><span class="literal string">&quot;Body mass index: %.1f</span><span class="literal string escape">\n</span><span class="literal string">&quot;</span><span class="punctuation">,</span> <span class="name">bmi</span><span class="punctuation">);</span>
+    <span class="keyword">return</span> <span class="literal number integer">0</span><span class="punctuation">;</span>
+<span class="punctuation">}</span></code></pre>
+<div class="step" data-rel-x="-230" data-rel-y="0" data-rel-z="-400">
+</div><div class="step" data-rel-x="0" data-rel-y="216" data-rel-z="0">
+</div><div class="step" data-rel-x="230" data-rel-y="-216" data-rel-z="400">
+</div></div>
+</div>
+<div class="slide step" data-rel-x="1920" data-rel-y="0" data-rel-z="0" id="multiple-input">
+<h2 class="title">Multiple Input</h2>
+<div class="content">
+<ul>
+<li>multiple pieces of data can be read in a single input</li>
+<li>user can separate them with spaces or new lines</li>
+</ul>
+<pre>double weight = 0.0, height = 0.0;
+printf(&quot;Enter weight (in kg) and height (in m): &quot;);
+scanf(&quot;%lf %lf&quot;, &amp;weight, &amp;height);</pre>
+</div>
+</div>
+<div class="slide step" data-rel-x="1920" data-rel-y="0" data-rel-z="0" id="assignment">
+<h2 class="title">Assignment</h2>
+<div class="content">
+<ul>
+<li>value of variable can be changed</li>
+<li><em>assignment</em>: store new value in variable</li>
+<li>replaces previous value</li>
+</ul>
+<pre class="substep">variable = expression;</pre>
+</div>
+</div>
+<div class="slide step" id="assignment-example">
+<h2 class="title">Assignment Example</h2>
+<div class="content">
+<ul>
+<li>change value of <code>weight</code> to <code>68.6</code></li>
+</ul>
+<pre>weight = 68.6;</pre>
+</div>
+</div>
+<div class="slide step" id="definition-and-assignment">
+<h2 class="title">Definition and Assignment</h2>
+<div class="content">
+<ul>
+<li>assignment modifies value of <span onclick="annotate(event, this, 'underline', 'orange')">previously defined</span> variable</li>
+</ul>
+<pre>double weight = 65.3;  // definition
+...
+weight = 68.6;         // assignment</pre>
+</div>
+</div>
+<div class="slide step" id="type-in-assignment">
+<h2 class="title">Type in Assignment</h2>
+<div class="content">
+<ul>
+<li>no type definition in assignment</li>
+</ul>
+<pre>double weight = 65.3;
+...
+<span onclick="annotate(event, this, 'crossed-off', 'red')">double</span> weight = 68.6;</pre>
+</div>
+</div>
+<div class="slide step" id="assignment-and-equality">
+<h2 class="title">Assignment and Equality</h2>
+<div class="content">
+<ul>
+<li><em>assignment is not equality</em></li>
+</ul>
+<div class="substep">
+<ul>
+<li>evaluate expresion, store result in variable</li>
+</ul>
+<div>
+\begin{equation*}
+variable \leftarrow expression
+\end{equation*}
+</div>
+</div>
+</div>
+</div>
+<div class="slide step" id="assignment-and-equality-example">
+<h2 class="title">Assignment and Equality Example</h2>
+<div class="content">
+<ul>
+<li>what does the below code mean?</li>
+</ul>
+<pre>weight = weight - 1.5;</pre>
+<ul class="substep">
+<li><em>weight EQUALS weight - 1.5???</em></li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="assignment-explanation">
+<h2 class="title">Assignment Explanation</h2>
+<div class="content">
+<pre>double weight = 65.3;
+weight = weight - 1.5;</pre>
+<div class="substep">
+<ul>
+<li>look up current value of <code>weight</code> (<code>65.3</code>)</li>
+<li>calculate <code>weight - 1.5</code> (<code>63.8</code>)</li>
+<li>store result in variable <code>weight</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="slide step" id="left-hand-side">
+<h2 class="title">Left Hand Side</h2>
+<div class="content">
+<ul>
+<li>left hand side of an assignment has to be a variable</li>
+</ul>
+<pre><span onclick="annotate(event, this, 'crossed-off', 'red')">68.6 = weight;</span></pre>
+</div>
+</div>
+<div class="slide step" id="variable-definitions">
+<h2 class="title">Variable Definitions</h2>
+<div class="content">
+<ul>
+<li>variables can be defined where they are first needed</li>
+<li>many programmers prefer to define all variables before first statement</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="where-needed">
+<h2 class="title">Where Needed</h2>
+<div class="content">
+<pre class="small">double weight = 0.0;  // mass, in kg
+printf(&quot;Enter weight (in kg): &quot;);
+scanf(&quot;%lf&quot;, &amp;weight);
+
+double height = 0.0;  // in m
+printf(&quot;Enter height (in m): &quot;);
+scanf(&quot;%lf&quot;, &amp;height);
+
+double bmi = weight / (height * height);</pre>
+</div>
+</div>
+<div class="slide step" id="before-first-statement">
+<h2 class="title">Before First Statement</h2>
+<div class="content">
+<pre class="small">double weight = 0.0;  // mass, in kg
+double height = 0.0;  // in m
+<span onclick="annotate(event, this, 'box', 'orange')">double bmi = 0.0;</span>     // body mass index
+
+printf(&quot;Enter weight (in kg): &quot;);
+scanf(&quot;%lf&quot;, &amp;weight);
+
+printf(&quot;Enter height (in m): &quot;);
+scanf(&quot;%lf&quot;, &amp;height);
+
+<span onclick="annotate(event, this, 'box', 'orange')">bmi = weight / (height * height);</span></pre>
+</div>
+</div>
+<div class="slide step" id="integer">
+<h2 class="title">Integer</h2>
+<div class="content">
+<div class="column width-1-3">
+<ul>
+<li><p>regular:</p>
+<p><code>int</code></p>
+</li>
+<li><p>narrower range:</p>
+<p><code>short int</code></p>
+</li>
+<li><p>wider range:</p>
+<p><code>long int</code></p>
+</li>
+</ul>
+</div>
+<div class="column width-3-5">
+<ul class="substep">
+<li>sizes and ranges not set by standard</li>
+</ul>
+<ul class="substep">
+<li><p>if unsigned:</p>
+<ul>
+<li><code>unsigned int</code></li>
+<li><code>unsigned short int</code></li>
+<li><code>unsigned long int</code></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="slide step" id="fractional-values">
+<h2 class="title">Fractional Values</h2>
+<div class="content">
+<ul>
+<li>fractional parts of values are discarded</li>
+</ul>
+<pre>double weight = 65.8;
+int weight_kg = weight;</pre>
+<ul>
+<li><code>weight_kg</code> becomes <code>65</code></li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="inaccurate-value-problem">
+<h2 class="title">Inaccurate Value Problem</h2>
+<div class="content">
+<ul>
+<li>inaccurate representation of floating point values</li>
+</ul>
+<pre>double height = 2.01;
+int height_cm = height * 100;</pre>
+<ul>
+<li><code>2.01 * 100</code> gives <code>200.99999999999997</code></li>
+<li><code>height_cm</code> becomes <code>200</code></li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="integer-i-o">
+<h2 class="title">Integer I/O</h2>
+<div class="content">
+<div class="column width-1-2">
+<ul>
+<li><p>decimal:</p>
+<p><code>%d</code></p>
+</li>
+<li><p>short:</p>
+<p><code>%hi</code></p>
+</li>
+<li><p>long:</p>
+<p><code>%ld</code></p>
+</li>
+<li><p>hexadecimal:</p>
+<p><code>%x</code></p>
+</li>
+</ul>
+</div>
+<div class="column width-1-2">
+<ul>
+<li><p>unsigned:</p>
+<p><code>%u</code></p>
+</li>
+<li><p>unsigned short:</p>
+<p><code>%hu</code></p>
+</li>
+<li><p>unsigned long:</p>
+<p><code>%lu</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="slide step" id="fixed-width-integers">
+<h2 class="title">Fixed-Width Integers</h2>
+<div class="content">
+<ul>
+<li>sizes and ranges set by standard</li>
+<li>defined in <code>stdint.h</code></li>
+</ul>
+<!--  -->
+<div class="column width-1-2">
+<ul>
+<li><code>int8_t</code></li>
+<li><code>int16_t</code></li>
+<li><code>int32_t</code></li>
+<li><code>int64_t</code></li>
+</ul>
+</div>
+<div class="column width-1-2">
+<ul>
+<li><code>uint8_t</code></li>
+<li><code>uint16_t</code></li>
+<li><code>uint32_t</code></li>
+<li><code>uint64_t</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="slide step" id="data-size">
+<h2 class="title">Data Size</h2>
+<div class="content">
+<ul>
+<li><p>getting data size:</p>
+<p><code>sizeof</code></p>
+</li>
+<li>size in bytes</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="integer-sizes">
+<h2 class="title">Integer Sizes</h2>
+<div class="content">
+<ul>
+<li>getting integer sizes:</li>
+</ul>
+<pre class="code c"><code><span class="name">printf</span><span class="punctuation">(</span><span class="literal string">&quot;int: %ld bytes</span><span class="literal string escape">\n</span><span class="literal string">&quot;</span><span class="punctuation">,</span> <span class="keyword">sizeof</span><span class="punctuation">(</span><span class="keyword type">int</span><span class="punctuation">));</span>
+<span class="name">printf</span><span class="punctuation">(</span><span class="literal string">&quot;short int: %ld bytes</span><span class="literal string escape">\n</span><span class="literal string">&quot;</span><span class="punctuation">,</span> <span class="keyword">sizeof</span><span class="punctuation">(</span><span class="keyword type">short</span> <span class="keyword type">int</span><span class="punctuation">));</span>
+<span class="name">printf</span><span class="punctuation">(</span><span class="literal string">&quot;long int: %ld bytes</span><span class="literal string escape">\n</span><span class="literal string">&quot;</span><span class="punctuation">,</span> <span class="keyword">sizeof</span><span class="punctuation">(</span><span class="keyword type">long</span> <span class="keyword type">int</span><span class="punctuation">));</span></code></pre>
+</div>
+</div>
+<div class="slide step" id="integer-limits">
+<h2 class="title">Integer Limits</h2>
+<div class="content">
+<ul>
+<li>defined in <code>limits.h</code></li>
+</ul>
+<div class="column width-1-3">
+<ul>
+<li><code>INT_MIN</code></li>
+<li><code>SHRT_MIN</code></li>
+<li><code>LONG_MIN</code></li>
+</ul>
+</div>
+<div class="column width-1-3">
+<ul>
+<li><code>INT_MAX</code></li>
+<li><code>SHRT_MAX</code></li>
+<li><code>LONG_MAX</code></li>
+</ul>
+</div>
+<div class="column width-1-3">
+<ul>
+<li><code>UINT_MAX</code></li>
+<li><code>USHRT_MAX</code></li>
+<li><code>ULONG_MAX</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="slide step" id="integer-division">
+<h2 class="title">Integer Division</h2>
+<div class="content">
+<ul>
+<li>if both operands are integers:</li>
+</ul>
+<div class="column width-1-2">
+<ul>
+<li><p>quotient:</p>
+<p><code>x / y</code></p>
+<ul>
+<li><p>example:</p>
+<p><span>\(14 / 4 = 3\)</span></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="column width-1-2 substep">
+<ul>
+<li><p>remainder (modulo):</p>
+<p><code>x % y</code></p>
+<ul>
+<li><p>example:</p>
+<p><span>\(14 \% 4 = 2\)</span></p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="slide step" id="integer-division-example">
+<h2 class="title">Integer Division Example</h2>
+<div class="content">
+<ul>
+<li>convert minutes to hours and minutes</li>
+</ul>
+<pre>int duration = 137;  // in minutes
+int hours = duration / 60;
+int minutes = duration % 60;</pre>
+</div>
+</div>
+<div class="slide step" id="unintended-integer-division">
+<h2 class="title">Unintended Integer Division</h2>
+<div class="content">
+<ul>
+<li>division between integers gives only quotient</li>
+</ul>
+<pre>int height_cm = 174;
+double height = <span onclick="annotate(event, this, 'box', 'orange')">height_cm</span> / <span onclick="annotate(event, this, 'box', 'orange')">100</span>;</pre>
+<ul>
+<li>result is <code>1.0</code>, not <code>1.74</code></li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="fix-unintended-integer-division">
+<h2 class="title">Fix: Unintended Integer Division</h2>
+<div class="content">
+<ul>
+<li>make an operand floating point:</li>
+</ul>
+<pre>int height_cm = 174;
+double height = height_cm / <span onclick="annotate(event, this, 'box', 'orange')">100.0</span>;</pre>
+</div>
+</div>
+<div class="slide step" id="type-conversion">
+<h2 class="title">Type Conversion</h2>
+<div class="content">
+<ul>
+<li><p>converting values from one type to another:</p>
+<p><em>type casting</em></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="conversion-issues">
+<h2 class="title">Conversion Issues</h2>
+<div class="content">
+<ul>
+<li><p>some conversions are straightforward</p>
+<blockquote>
+<ul>
+<li>convert integer to floating point</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ul class="substep">
+<li><p>some conversions require more attention</p>
+<blockquote>
+<ul>
+<li>convert floating point to integer</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="implicit-conversion">
+<h2 class="title">Implicit Conversion</h2>
+<div class="content">
+<ul>
+<li>explicit conversion: by programmer</li>
+</ul>
+<!--  -->
+<ul>
+<li><p>implicit conversion: by compiler</p>
+<ul>
+<li>when the operation calls for it</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="implicit-conversion-examples">
+<h2 class="title">Implicit Conversion Examples</h2>
+<div class="content">
+<ul>
+<li><p>when assigned value type is different from variable type</p>
+<ul>
+<li>assign integer value to floating point variable</li>
+</ul>
+</li>
+</ul>
+<ul class="substep">
+<li><p>when an operand has a different type</p>
+<ul>
+<li>add a floating point value with an integer value</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="id10">
+<h2 class="title">Type Conversion</h2>
+<div class="content">
+<ul>
+<li><p>syntax for type conversion:</p>
+<pre>(type) expression</pre>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="id11">
+<h2 class="title">Unintended Integer Division</h2>
+<div class="content">
+<ul>
+<li>division between integers gives only quotient</li>
+</ul>
+<pre>int height_cm = 174;
+double height = height_cm / 100;</pre>
+<ul>
+<li>result is <code>1.0</code>, not <code>1.74</code></li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="fix-floating-point-literal">
+<h2 class="title">Fix: Floating Point Literal</h2>
+<div class="content">
+<ul>
+<li>make <code>100</code> floating point:</li>
+</ul>
+<pre>double height = <span onclick="annotate(event, this, 'box', 'orange')">height_cm</span> / 100.0;</pre>
+</div>
+</div>
+<div class="slide step" id="fix-type-conversion">
+<h2 class="title">Fix: Type Conversion</h2>
+<div class="content">
+<ul>
+<li>make <code>height_cm</code> floating point:</li>
+</ul>
+<pre>double height = <span onclick="annotate(event, this, 'box', 'orange')">(double) height_cm</span> / 100;</pre>
+</div>
+</div>
+<div class="slide step" id="incorrect-fix">
+<h2 class="title">Incorrect Fix</h2>
+<div class="content">
+<ul>
+<li>conversion applies to first expression</li>
+</ul>
+<pre>double height = (double) <span onclick="annotate(event, this, 'box', 'orange')">height_cm</span> / 100;
+
+double height = (double) <span onclick="annotate(event, this, 'box', 'red')">(height_cm / 100)</span>;</pre>
+</div>
+</div>
+<div class="slide step" id="incompatible-value">
+<h2 class="title">Incompatible Value</h2>
+<div class="content">
+<ul>
+<li>type of expression isn't compatible with type of variable</li>
+<li>compiler error or warning</li>
+</ul>
+<pre>double weight = &quot;65.3&quot;;</pre>
+</div>
+</div>
+<div class="slide step" id="out-of-range-value">
+<h2 class="title">Out of Range Value</h2>
+<div class="content">
+<ul>
+<li>assigned value not in variable type's range: <em>overflow</em></li>
+<li>compiler warning</li>
+</ul>
+<pre>short int x = 70000;</pre>
+</div>
+</div>
+<div class="slide step" id="taxi-fare">
+<h2 class="title">Taxi Fare</h2>
+<div class="content">
+<ul>
+<li>switch-on price</li>
+<li>per unit distance price</li>
+</ul>
+<!--  -->
+<ul>
+<li>minimal fare: hop-on hop-off price</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="new-york-taxi-fare">
+<h2 class="title">New York Taxi Fare</h2>
+<div class="content">
+<ul>
+<li><p>switch-on price:</p>
+<p>$2.50</p>
+</li>
+<li><p>per unit distance price:</p>
+<p>$0.50 per 0.2 miles</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="new-york-taxi-fare-formula">
+<h2 class="title">New York Taxi Fare Formula</h2>
+<div class="content">
+<ul>
+<li><span>\(d\)</span>: travel distance (in miles)</li>
+</ul>
+<div>
+\begin{equation*}
+2.50 + 0.50 \cdot \left\lfloor \frac{d}{0.2} \right\rfloor
+\end{equation*}
+</div>
+</div>
+</div>
+<div class="slide step" id="istanbul-taxi-fare">
+<h2 class="title">Istanbul Taxi Fare</h2>
+<div class="content">
+<ul>
+<li><p>switch-on price:</p>
+<p>5.00 TL</p>
+</li>
+<li><p>per unit distance price:</p>
+<p>0.31 TL per 0.1 km</p>
+</li>
+<li>minimal fare: 13.00TL</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="constants">
+<h2 class="title">Constants</h2>
+<div class="content">
+<ul>
+<li>some values in expressions are fixed: <em>constant</em></li>
+</ul>
+<ul class="column width-1-2">
+<li><p>general constants</p>
+<p><span>\(\pi\)</span>: <span>\(3.14159...\)</span></p>
+<p>1 inch = <span>\(2.54\)</span> cm</p>
+</li>
+</ul>
+<ul class="column width-1-2">
+<li>problem-specific constants</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="literal-constants">
+<h2 class="title">Literal Constants</h2>
+<div class="content">
+<ul>
+<li>using literals for constants makes the code hard to understand</li>
+</ul>
+<pre>2.50 + 0.50 * (distance / 0.2)</pre>
+<ul>
+<li>what do these numbers represent?</li>
+</ul>
+<!--  -->
+<ul>
+<li>named constants are easier to read</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="maintenance">
+<h2 class="title">Maintenance</h2>
+<div class="content">
+<ul>
+<li>literal values also make maintenance harder</li>
+<li>what if you need to change one?</li>
+</ul>
+<ul class="substep">
+<li>named constants are easier to change</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="maintenance-example">
+<h2 class="title">Maintenance Example</h2>
+<div class="content">
+<ul>
+<li>assume that your code has many <span>\(0.2\)</span> literals</li>
+<li>unit distance, tax rate, ...</li>
+<li>tax rate is changed</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="constant-definition">
+<h2 class="title">Constant Definition</h2>
+<div class="content">
+<ul>
+<li>defining a constant: <code>const</code></li>
+</ul>
+<pre class="code c"><code><span class="keyword">const</span> <span class="name">type</span> <span class="name">name</span> <span class="operator">=</span> <span class="name">value</span><span class="punctuation">;</span></code></pre>
+<ul class="substep">
+<li><em>read-only variable</em></li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="manipulating-constants">
+<h2 class="title">Manipulating Constants</h2>
+<div class="content">
+<ul>
+<li>assigning to a constant causes a compiler error</li>
+<li>omitting value causes a compiler warning</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="new-york-taxi-fare-constants">
+<h2 class="title">New York Taxi Fare Constants</h2>
+<div class="content">
+<ul>
+<li>define problem-specific constants:</li>
+</ul>
+<pre class="code c"><code><span class="keyword">const</span> <span class="keyword type">double</span> <span class="name">switch_on</span> <span class="operator">=</span> <span class="literal number float">2.50</span><span class="punctuation">;</span>     <span class="comment single">// in dollars
+</span><span class="keyword">const</span> <span class="keyword type">double</span> <span class="name">per_unit</span> <span class="operator">=</span> <span class="literal number float">0.50</span><span class="punctuation">;</span>      <span class="comment single">// in dollars
+</span><span class="keyword">const</span> <span class="keyword type">double</span> <span class="name">unit_distance</span> <span class="operator">=</span> <span class="literal number float">0.2</span><span class="punctuation">;</span>  <span class="comment single">// in miles</span></code></pre>
+</div>
+</div>
+<div class="slide step" id="new-york-taxi-fare-calculation">
+<h2 class="title">New York Taxi Fare Calculation</h2>
+<div class="content">
+<ul>
+<li>use the constants:</li>
+</ul>
+<pre>switch_on + per_unit * <span onclick="annotate(event, this, 'box', 'orange')">(int) (distance / unit_distance)</span>;</pre>
+</div>
+</div>
+<div class="slide step" id="new-york-taxi-fare-program">
+<h2 class="title">New York Taxi Fare Program</h2>
+<div class="content">
+<pre class="code c smallest"><code><span class="comment multiline">/*
+ * This program calculates and prints the approximate taxi fare
+ * in New York City for a travel distance given by the user.
+ */</span>
+
+<span class="comment preproc">#include</span> <span class="comment preprocfile">&lt;stdio.h&gt;</span><span class="comment single">  // printf, scanf</span><span class="comment preproc">
+</span>
+<span class="keyword type">int</span> <span class="name function">main</span><span class="punctuation">()</span> <span class="punctuation">{</span>
+    <span class="keyword">const</span> <span class="keyword type">double</span> <span class="name">switch_on</span> <span class="operator">=</span> <span class="literal number float">2.50</span><span class="punctuation">;</span>     <span class="comment single">// switch-on price, in dollars
+</span>    <span class="keyword">const</span> <span class="keyword type">double</span> <span class="name">per_unit</span> <span class="operator">=</span> <span class="literal number float">0.50</span><span class="punctuation">;</span>      <span class="comment single">// price per unit distance, in dollars
+</span>    <span class="keyword">const</span> <span class="keyword type">double</span> <span class="name">unit_distance</span> <span class="operator">=</span> <span class="literal number float">0.2</span><span class="punctuation">;</span>  <span class="comment single">// unit distance, in miles
+</span>    <span class="keyword type">double</span> <span class="name">distance</span> <span class="operator">=</span> <span class="literal number float">0.0</span><span class="punctuation">;</span>             <span class="comment single">// travel distance, in miles
+</span>    <span class="keyword type">double</span> <span class="name">fare</span> <span class="operator">=</span> <span class="literal number float">0.0</span><span class="punctuation">;</span>                 <span class="comment single">// in dollars
+</span>
+    <span class="name">printf</span><span class="punctuation">(</span><span class="literal string">&quot;Enter travel distance (in miles): &quot;</span><span class="punctuation">);</span>
+    <span class="name">scanf</span><span class="punctuation">(</span><span class="literal string">&quot;%lf&quot;</span><span class="punctuation">,</span> <span class="operator">&amp;</span><span class="name">distance</span><span class="punctuation">);</span>
+
+    <span class="name">fare</span> <span class="operator">=</span> <span class="name">switch_on</span> <span class="operator">+</span> <span class="name">per_unit</span> <span class="operator">*</span> <span class="punctuation">(</span><span class="keyword type">int</span><span class="punctuation">)</span> <span class="punctuation">(</span><span class="name">distance</span> <span class="operator">/</span> <span class="name">unit_distance</span><span class="punctuation">);</span>
+    <span class="name">printf</span><span class="punctuation">(</span><span class="literal string">&quot;Fare: $%.2f</span><span class="literal string escape">\n</span><span class="literal string">&quot;</span><span class="punctuation">,</span> <span class="name">fare</span><span class="punctuation">);</span>
+    <span class="keyword">return</span> <span class="literal number integer">0</span><span class="punctuation">;</span>
+<span class="punctuation">}</span></code></pre>
+<div class="step" data-rel-x="-288" data-rel-y="184" data-rel-z="-420">
+</div><div class="step" data-rel-x="288" data-rel-y="-184" data-rel-z="420">
+</div></div>
+</div>
+<div class="slide step" data-rel-x="1920" data-rel-y="0" data-rel-z="0" id="macro-constant">
+<h2 class="title">Macro Constant</h2>
+<div class="content">
+<div class="column width-2-5">
+<ul>
+<li>defining a macro constant:</li>
+</ul>
+<pre class="code c"><code><span class="comment preproc">#define NAME value</span></code></pre>
+<ul>
+<li>use all capital letters<br/>
+(convention)<br/>
+</li>
+</ul>
+</div>
+<div class="column width-1-2">
+<ul class="substep">
+<li>directive</li>
+<li>outside of functions</li>
+</ul>
+<ul class="substep">
+<li>not a read-only variable</li>
+<li>no explicit type</li>
+<li>find and replace in source code</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="slide step" data-rel-x="1920" data-rel-y="0" data-rel-z="0" id="macro-constant-examples">
+<h2 class="title">Macro Constant Examples</h2>
+<div class="content">
+<ul>
+<li>define general constants</li>
+</ul>
+<pre class="code c"><code><span class="comment preproc">#define PI 3.14159
+#define CM_PER_INCH 2.54</span></code></pre>
+</div>
+</div>
+<div class="slide step" id="id14">
+<h2 class="title">New York Taxi Fare</h2>
+<div class="content">
+<ul>
+<li>what if we want to let users enter distance in km?</li>
+</ul>
+<pre class="code c"><code><span class="comment preproc">#define KM_PER_MILE 1.6093</span></code></pre>
+</div>
+</div>
+<div class="slide step" id="distance-conversion">
+<h2 class="title">Distance Conversion</h2>
+<div class="content">
+<pre class="code c"><code><span class="keyword type">double</span> <span class="name">distance_km</span> <span class="operator">=</span> <span class="literal number float">0.0</span><span class="punctuation">;</span>          <span class="comment single">// in kilometers
+</span><span class="keyword type">double</span> <span class="name">distance</span> <span class="operator">=</span> <span class="literal number float">0.0</span><span class="punctuation">;</span>             <span class="comment single">// in miles
+</span>
+<span class="name">printf</span><span class="punctuation">(</span><span class="literal string">&quot;Enter distance (in km): &quot;</span><span class="punctuation">);</span>
+<span class="name">scanf</span><span class="punctuation">(</span><span class="literal string">&quot;%lf&quot;</span><span class="punctuation">,</span> <span class="operator">&amp;</span><span class="name">distance_km</span><span class="punctuation">);</span>
+<span class="name">distance</span> <span class="operator">=</span> <span class="name">distance_km</span> <span class="operator">/</span> <span class="name">KM_PER_MILE</span><span class="punctuation">;</span></code></pre>
+</div>
+</div>
+<div class="slide step" id="id15">
+<h2 class="title">New York Taxi Fare Program</h2>
+<div class="content">
+<pre class="code c smallest"><code><span class="comment preproc">#include</span> <span class="comment preprocfile">&lt;stdio.h&gt;</span><span class="comment single">  // printf, scanf</span><span class="comment preproc">
+</span>
+<span class="comment preproc">#define KM_PER_MILE 1.6093
+</span>
+<span class="keyword type">int</span> <span class="name function">main</span><span class="punctuation">()</span> <span class="punctuation">{</span>
+    <span class="keyword">const</span> <span class="keyword type">double</span> <span class="name">switch_on</span> <span class="operator">=</span> <span class="literal number float">2.50</span><span class="punctuation">;</span>     <span class="comment single">// switch-on price, in dollars
+</span>    <span class="keyword">const</span> <span class="keyword type">double</span> <span class="name">per_unit</span> <span class="operator">=</span> <span class="literal number float">0.50</span><span class="punctuation">;</span>      <span class="comment single">// price per unit distance, in dollars
+</span>    <span class="keyword">const</span> <span class="keyword type">double</span> <span class="name">unit_distance</span> <span class="operator">=</span> <span class="literal number float">0.2</span><span class="punctuation">;</span>  <span class="comment single">// unit distance, in miles
+</span>    <span class="keyword type">double</span> <span class="name">distance_km</span> <span class="operator">=</span> <span class="literal number float">0.0</span><span class="punctuation">;</span>          <span class="comment single">// travel distance, in km
+</span>    <span class="keyword type">double</span> <span class="name">distance</span> <span class="operator">=</span> <span class="literal number float">0.0</span><span class="punctuation">;</span>             <span class="comment single">// travel distance, in miles
+</span>    <span class="keyword type">double</span> <span class="name">fare</span> <span class="operator">=</span> <span class="literal number float">0.0</span><span class="punctuation">;</span>                 <span class="comment single">// in dollars
+</span>
+    <span class="name">printf</span><span class="punctuation">(</span><span class="literal string">&quot;Enter distance (in km): &quot;</span><span class="punctuation">);</span>
+    <span class="name">scanf</span><span class="punctuation">(</span><span class="literal string">&quot;%lf&quot;</span><span class="punctuation">,</span> <span class="operator">&amp;</span><span class="name">distance_km</span><span class="punctuation">);</span>
+    <span class="name">distance</span> <span class="operator">=</span> <span class="name">distance_km</span> <span class="operator">/</span> <span class="name">KM_PER_MILE</span><span class="punctuation">;</span>
+
+    <span class="name">fare</span> <span class="operator">=</span> <span class="name">switch_on</span> <span class="operator">+</span> <span class="name">per_unit</span> <span class="operator">*</span> <span class="punctuation">(</span><span class="keyword type">int</span><span class="punctuation">)</span> <span class="punctuation">(</span><span class="name">distance</span> <span class="operator">/</span> <span class="name">unit_distance</span><span class="punctuation">);</span>
+    <span class="name">printf</span><span class="punctuation">(</span><span class="literal string">&quot;Fare: $%.2f</span><span class="literal string escape">\n</span><span class="literal string">&quot;</span><span class="punctuation">,</span> <span class="name">fare</span><span class="punctuation">);</span>
+    <span class="keyword">return</span> <span class="literal number integer">0</span><span class="punctuation">;</span>
+<span class="punctuation">}</span></code></pre>
+<div class="step" data-rel-x="-288" data-rel-y="130" data-rel-z="-420">
+</div><div class="step" data-rel-x="288" data-rel-y="-130" data-rel-z="420">
+</div></div>
+</div>
+<div class="slide step" data-rel-x="1920" data-rel-y="0" data-rel-z="0" id="program-result">
+<h2 class="title">Program Result</h2>
+<div class="content">
+<pre class="code c"><code><span class="comment preproc">#include</span> <span class="comment preprocfile">&lt;stdio.h&gt;</span><span class="comment single">  // printf</span><span class="comment preproc">
+</span>
+<span class="keyword type">int</span> <span class="name function">main</span><span class="punctuation">()</span> <span class="punctuation">{</span>
+    <span class="name">printf</span><span class="punctuation">(</span><span class="literal string">&quot;Hello, world!</span><span class="literal string escape">\n</span><span class="literal string">&quot;</span><span class="punctuation">);</span>
+    <span class="keyword">return</span> <span class="literal number integer">0</span><span class="punctuation">;</span>
+<span class="punctuation">}</span></code></pre>
+<ul>
+<li>what does that 0 mean?</li>
+</ul>
+</div>
+</div>
+<div class="slide step" data-rel-x="1920" data-rel-y="0" data-rel-z="0" id="return-codes">
+<h2 class="title">Return Codes</h2>
+<div class="content">
+<ul>
+<li>macro constants: <code>EXIT_SUCCESS</code> and <code>EXIT_FAILURE</code></li>
+</ul>
+<pre class="code c small"><code><span class="comment preproc">#include</span> <span class="comment preprocfile">&lt;stdio.h&gt;</span><span class="comment single">   // printf</span><span class="comment preproc">
+#include</span> <span class="comment preprocfile">&lt;stdlib.h&gt;</span><span class="comment single">  // EXIT_SUCCESS</span><span class="comment preproc">
+</span>
+<span class="keyword type">int</span> <span class="name function">main</span><span class="punctuation">()</span> <span class="punctuation">{</span>
+    <span class="name">printf</span><span class="punctuation">(</span><span class="literal string">&quot;Hello, world!</span><span class="literal string escape">\n</span><span class="literal string">&quot;</span><span class="punctuation">);</span>
+    <span class="keyword">return</span> <span class="name">EXIT_SUCCESS</span><span class="punctuation">;</span>
+<span class="punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="slide step" id="combined-assignment">
+<h2 class="title">Combined Assignment</h2>
+<div class="content">
+<ul>
+<li>assignment can be combined with operation</li>
+</ul>
+<pre class="code c"><code><span class="name">counter</span> <span class="operator">+=</span> <span class="literal number integer">1</span><span class="punctuation">;</span>
+<span class="comment single">// counter = counter + 1;
+</span>
+<span class="name">total</span> <span class="operator">+=</span> <span class="name">item_count</span> <span class="operator">*</span> <span class="name">item_price</span><span class="punctuation">;</span>
+<span class="comment single">// total = total + item_count * item_price;</span></code></pre>
+</div>
+</div>
+<div class="slide step" id="operators">
+<h2 class="title">Operators</h2>
+<div class="content">
+<ul>
+<li>works with all operators</li>
+</ul>
+<pre class="code c"><code><span class="name">counter</span> <span class="operator">-=</span> <span class="literal number integer">1</span><span class="punctuation">;</span>
+<span class="comment single">// counter = counter - 1;
+</span>
+<span class="name">size</span> <span class="operator">*=</span> <span class="literal number integer">2</span><span class="punctuation">;</span>
+<span class="comment single">// size = size * 2;</span></code></pre>
+</div>
+</div>
+<div class="slide step" id="increment-and-decrement">
+<h2 class="title">Increment and Decrement</h2>
+<div class="content">
+<ul>
+<li>increment and decrement by 1 are very common</li>
+<li>special operators: <code>++</code> and <code>--</code></li>
+<li>before or after variable name</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="increment-and-decrement-examples">
+<h2 class="title">Increment and Decrement Examples</h2>
+<div class="content">
+<div class="column width-1-2">
+<ul>
+<li>increment</li>
+</ul>
+<pre class="code c"><code><span class="name">counter</span><span class="operator">++</span><span class="punctuation">;</span>
+
+<span class="operator">++</span><span class="name">counter</span><span class="punctuation">;</span>
+
+<span class="comment single">// counter = counter + 1;</span></code></pre>
+</div>
+<div class="column width-1-2">
+<ul>
+<li>decrement</li>
+</ul>
+<pre class="code c"><code><span class="name">counter</span><span class="operator">--</span><span class="punctuation">;</span>
+
+<span class="operator">--</span><span class="name">counter</span><span class="punctuation">;</span>
+
+<span class="comment single">// counter = counter - 1;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="slide step" id="operator-placement">
+<h2 class="title">Operator Placement</h2>
+<div class="content">
+<ul>
+<li>placement significant when part of expression</li>
+</ul>
+<!--  -->
+<ul>
+<li>after: use current value, then increment/decrement</li>
+<li>before: first increment/decrement, then use value</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="operator-placement-example">
+<h2 class="title">Operator Placement Example</h2>
+<div class="content">
+<div class="column width-1-2">
+<ul>
+<li>after variable</li>
+</ul>
+<pre class="code c"><code><span class="name">x</span> <span class="operator">=</span> <span class="name">counter</span><span class="operator">++</span><span class="punctuation">;</span>
+
+<span class="comment single">// x = counter;
+// counter++;</span></code></pre>
+</div>
+<div class="column width-1-2">
+<ul>
+<li>before variable</li>
+</ul>
+<pre class="code c"><code><span class="name">x</span> <span class="operator">=</span> <span class="operator">++</span><span class="name">counter</span><span class="punctuation">;</span>
+
+<span class="comment single">// counter++;
+// x = counter;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="slide step" id="function">
+<h2 class="title">Function</h2>
+<div class="content">
+<ul>
+<li><em>function</em>: unit of code that performs a task</li>
+<li>and returns a result</li>
+</ul>
+<!--  -->
+<ul>
+<li><p>example:</p>
+<p>square root of 7.2</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="parameters">
+<h2 class="title">Parameters</h2>
+<div class="content">
+<ul>
+<li>functions can take <em>parameters</em></li>
+<li>same function working on different values</li>
+</ul>
+<!--  -->
+<ul>
+<li><p>examples:</p>
+<p>square root of a number</p>
+<p>greatest common divisor of two numbers</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="parameter-terminology">
+<h2 class="title">Parameter Terminology</h2>
+<div class="content">
+<ul>
+<li>parameter: <em>input parameter</em></li>
+<li>result: <em>output parameter</em></li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="function-code">
+<h2 class="title">Function Code</h2>
+<div class="content">
+<div class="column width-1-2">
+<ul>
+<li><p><em>function definition</em></p>
+<ul>
+<li>name</li>
+<li><span onclick="annotate(event, this, 'underline', 'orange')">formal parameters</span></li>
+<li>description of how</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="column width-1-2">
+<ul>
+<li><p><em>function call</em></p>
+<ul>
+<li>name</li>
+<li><span onclick="annotate(event, this, 'underline', 'orange')">actual parameters</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="column width-1-2">
+<ul>
+<li>only once</li>
+</ul>
+</div>
+<div class="column width-1-2">
+<ul>
+<li>any number of times</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="slide step" id="function-code-examples">
+<h2 class="title">Function Code Examples</h2>
+<div class="content">
+<div class="column width-1-2">
+<ul>
+<li>name: <code>sqrt</code></li>
+<li>formal parameter: <code>x</code></li>
+</ul>
+<!--  -->
+<ul>
+<li>name: <code>gcd</code></li>
+<li>formal parameters: <code>m</code>, <code>n</code></li>
+</ul>
+</div>
+<div class="column width-1-2 substep">
+<ul>
+<li><code>sqrt(7.2)</code></li>
+<li>actual parameter for <code>x</code>: <code>7.2</code></li>
+</ul>
+<!--  -->
+<ul>
+<li><code>sqrt(186)</code></li>
+<li>actual parameter for <code>x</code>: <code>186</code></li>
+</ul>
+<!--  -->
+<ul>
+<li>call: <code>gcd(42, 30)</code></li>
+<li>actual parameter for <code>m</code>: <code>42</code></li>
+<li>actual parameter for <code>n</code>: <code>30</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="slide step" id="libraries">
+<h2 class="title">Libraries</h2>
+<div class="content">
+<ul>
+<li>libraries contain function definitions</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="functions-in-expressions">
+<h2 class="title">Functions in Expressions</h2>
+<div class="content">
+<ul>
+<li>function call can be part of expression</li>
+<li>result replaces call</li>
+</ul>
+<!--  -->
+<pre>(1 + <span onclick="annotate(event, this, 'box', 'orange')">sqrt(5)</span>) / 2
+
+(1 + <span onclick="annotate(event, this, 'box', 'orange')">2.236</span>) / 2</pre>
+</div>
+</div>
+<div class="slide step" id="body-surface-area">
+<h2 class="title">Body Surface Area</h2>
+<div class="content">
+<ul>
+<li><p>Du Bois formula:</p>
+<ul>
+<li><span>\(w\)</span>: weight (mass, kg)</li>
+<li><span>\(h\)</span>: height (cm)</li>
+<li><span>\(bsa\)</span>: body surface area (m<sup>2</sup>)</li>
+</ul>
+</li>
+</ul>
+<div>
+\begin{equation*}
+bsa = 0.007184 \cdot w^{0.425} \cdot h^{0.725}
+\end{equation*}
+</div>
+</div>
+</div>
+<div class="slide step" id="mathematical-functions">
+<h2 class="title">Mathematical Functions</h2>
+<div class="content">
+<ul>
+<li>standard library contains commonly used mathematical functions:</li>
+</ul>
+<!--  -->
+<ul>
+<li>square root, exponentiation, logarithms</li>
+<li>trigonometric functions</li>
+<li>round, ceiling, floor</li>
+</ul>
+<ul class="substep">
+<li>need to include <code>math.h</code></li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="exponentiation">
+<h2 class="title">Exponentiation</h2>
+<div class="content">
+<ul>
+<li><code>pow</code> function</li>
+</ul>
+<!--  -->
+<ul>
+<li><p><span>\(x^y\)</span></p>
+<pre>pow(x, y)</pre>
+</li>
+<li>parameters and result are all of type <code>double</code></li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="id17">
+<h2 class="title">Body Surface Area</h2>
+<div class="content">
+<pre class="smallest">#include &lt;stdio.h&gt;   // printf, scanf
+#include &lt;stdlib.h&gt;  // EXIT_SUCCESS
+<span onclick="annotate(event, this, 'box', 'orange')">#include &lt;math.h&gt;</span>    // pow
+
+int main() {
+    double weight = 0.0;  // mass, in kg
+    double height = 0.0;  // in cm
+    double bsa = 0.0;     // in m2
+
+    printf(&quot;Enter weight (in kg): &quot;);
+    scanf(&quot;%lf&quot;, &amp;weight);
+
+    printf(&quot;Enter height (in cm): &quot;);
+    scanf(&quot;%lf&quot;, &amp;height);
+
+    bsa = 0.007184 * <span onclick="annotate(event, this, 'box', 'orange')">pow(weight, 0.425)</span> * <span onclick="annotate(event, this, 'box', 'orange')">pow(height, 0.725)</span>;
+    printf(&quot;Body surface area: %.2f m2\n&quot;, bsa);
+    return EXIT_SUCCESS;
+}</pre>
+</div>
+</div>
+</div>
+</body>
+</html>

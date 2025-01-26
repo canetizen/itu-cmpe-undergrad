@@ -1,0 +1,71 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.41.0.0
+Copyright (C) 2024 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: can cca, n, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.41.0.0
+Toolchain Path:  C:\Users\mcanc\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.22
+Assembler:       Armasm.exe V6.22
+Linker/Locator:  ArmLink.exe V6.22
+Library Manager: ArmAr.exe V6.22
+Hex Converter:   FromElf.exe V6.22
+CPU DLL:         SARMCM3.DLL V5.41.0.0
+Dialog DLL:      DARMCM1.DLL V1.19.6.0
+Target DLL:      UL2CM3.DLL V1.164.14.0
+Dialog DLL:      TARMCM1.DLL V1.14.6.0
+ 
+<h2>Project:</h2>
+C:\Users\mcanc\OneDrive\Documents\Courses\BLG 212E Microprocessor Systems\Homework\HW1\h1_files.uvprojx
+Project File Date:  11/08/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.22', folder: 'C:\Users\mcanc\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Target_1'
+"h1_iterative.s", line 105: Warning: A1581W: Added 2 bytes of padding at address 0x8a
+  105 0000008c     END                            ; End of program
+0 Errors, 1 Warning
+assembling h1_iterative.s...
+linking...
+.\RTE\Device\ARMCM0P\ARMCM0plus_ac6.sct(13): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+.\RTE\Device\ARMCM0P\ARMCM0plus_ac6.sct(19): warning: L6314W: No section matches pattern *(.bss.noinit).
+Program Size: Code=180 RO-data=192 RW-data=4 ZI-data=3584  
+Finished: 0 information, 2 warning and 0 error messages.
+".\Objects\h1_files.axf" - 0 Error(s), 2 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS.6.1.0.pack
+                ARM::CMSIS@6.1.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 6.1.0
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.Cortex_DFP.1.1.0.pack
+                ARM::Cortex_DFP@1.1.0
+                ARM Cortex Reference Subsystems Device Family Pack
+   * Component: Startup Variant: C Startup Version: 2.2.0
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_Target_1
+  C:/Users/mcanc/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include
+  C:/Users/mcanc/AppData/Local/Arm/Packs/ARM/Cortex_DFP/1.1.0/Device/ARMCM0plus/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE@6.1.0
+
+   * Component: ARM::Device:Startup&C Startup@2.2.0
+      Include file:  Device/ARMCM0plus/Include/ARMCM0plus.h
+      Source file:   Device/ARMCM0plus/Source/system_ARMCM0plus.c
+      Source file:   Device/ARMCM0plus/Source/startup_ARMCM0plus.c
+Build Time Elapsed:  00:00:00
+</pre>
+</body>
+</html>

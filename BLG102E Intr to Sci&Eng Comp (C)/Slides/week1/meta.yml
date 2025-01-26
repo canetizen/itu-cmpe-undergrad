@@ -1,0 +1,7 @@
+parts:
+  - blg102/1.programming
+  - blg102/2.hello-world
+  - blg102/3.style
+  - blg102/4.development-workflow
+  - blg102/5.build-problems
+  - blg102/6.algorithms

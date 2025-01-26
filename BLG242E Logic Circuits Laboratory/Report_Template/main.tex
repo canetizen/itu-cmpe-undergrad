@@ -1,0 +1,104 @@
+\documentclass[pdftex,12pt,a4paper]{article}
+
+\usepackage{graphicx}  
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{breakcites}
+\usepackage{indentfirst}
+\usepackage{pgfgantt}
+\usepackage{pdflscape}
+\usepackage{float}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage[cmex10]{amsmath}
+\usepackage{stfloats}
+\usepackage{multirow}
+
+\renewcommand{\refname}{REFERENCES}
+\linespread{1.3}
+
+\usepackage{mathtools}
+%\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\thispagestyle{empty}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\textbf{}\\
+\textbf{\Large{ISTANBUL TECHNICAL UNIVERSITY}}\\
+\vspace{0.5cm}
+\textbf{\Large{COMPUTER ENGINEERING DEPARTMENT}}\\
+\vspace{2cm}
+\textbf{\Large{BLG 242E\\ DIGITAL CIRCUITS LABORATORY\\ EXPERIMENT REPORT}}\\
+\vspace{2.8cm}
+\begin{table}[ht]
+\centering
+\Large{
+\begin{tabular}{lcl}
+\textbf{EXPERIMENT NO}  & : & 1 \\
+\textbf{EXPERIMENT DATE}  & : & 01.01.2021 \\
+\textbf{LAB SESSION}  & : & FRIDAY - 10.30 \\
+\textbf{GROUP NO}  & : & G1 \\
+\end{tabular}}
+\end{table}
+\vspace{1cm}
+\textbf{\Large{GROUP MEMBERS:}}\\
+\begin{table}[ht]
+\centering
+\Large{
+\begin{tabular}{rcl}
+150160000  & : & STUDENT NAME \& SURNAME \\
+150160001  & : & STUDENT NAME \& SURNAME \\
+150160002  & : & STUDENT NAME \& SURNAME \\
+\end{tabular}}
+\end{table}
+\vspace{2.8cm}
+\textbf{\Large{SPRING 2021}}
+
+\end{center}
+
+\end{titlepage}
+
+\thispagestyle{empty}
+\addtocontents{toc}{\contentsline {section}{\numberline {}FRONT COVER}{}}
+\addtocontents{toc}{\contentsline {section}{\numberline {}CONTENTS}{}}
+\setcounter{tocdepth}{4}
+\tableofcontents
+\clearpage
+
+\setcounter{page}{1}
+
+\section{INTRODUCTION [10 points]}
+
+Briefly describe what you have done during the experiment.
+
+\section{MATERIALS AND METHODS [40 points]}
+Answer all questions and provide everything that are indicated in the “Report” section of the related experiment in “Experiments Booklet”.
+Edit following sub-heading as you wish.
+
+\subsection{FIRST HEADER}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.5\textwidth]{logo.png}	
+	\caption{An Example Figure Caption\cite{ref1}}
+	\label{fig1}
+\end{figure}
+
+\subsection{SECOND HEADER}
+
+
+\section{RESULTS [15 points]}
+Give the your results what did you get during the experiment. You can also add table, image, etc. 
+
+\section{DISCUSSION [25 points]}
+Please explain, analyze, and interpret what have you done during the  experiment. 
+
+\section{CONCLUSION [10 points]}
+Comment on any difficulties you have faced, what you have learned etc.
+
+\newpage
+\addcontentsline{toc}{section}{\numberline {}REFERENCES}
+
+\bibliographystyle{unsrt}
+\bibliography{reference}
+
+\end{document}
+

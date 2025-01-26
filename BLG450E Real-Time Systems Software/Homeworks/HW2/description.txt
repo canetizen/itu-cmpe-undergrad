@@ -1,0 +1,19 @@
+The reliability of real-time systems can be improved with the support of Artificial Intelligence. Even though it is beneficial, it also introduces new challenges from ethical, technical, and security/privacy perspectives.
+
+You are asked to make a literature review on one of the topics in which both real-time and AI concepts/implementations coexist. Since it is an extremely wide and diverse area of research, you are free to find your own topic to focus.
+
+1. Pick your own topic.
+
+2. Select 5-10 papers representing the state-of-the-art form different perspectives.
+
+3. Pay attention to academic (not technological) aspects of the problems in the topic you selected.
+
+4. Explain the topic in your own words in the way you understood in not more than 4000-5000 words in the form of a technical report. (Note that it is not just the summary of the papers.) 
+
+5. Figures, graphs, etc. would be helpful to explain the topic.
+
+Please note that this is not a group assignment and no group work is allowed. You are also not allowed to take professional help and/or benefit from automatic document production tools.
+
+All the best 
+
+Turgay

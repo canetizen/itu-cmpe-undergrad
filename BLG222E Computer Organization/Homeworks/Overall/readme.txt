@@ -1,0 +1,1 @@
+Both projects have passed all tests and received full marks.

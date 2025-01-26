@@ -1,0 +1,19 @@
+/* @Author
+* Student Name: Mustafa Can Caliskan
+* Student ID : 150200097
+*/
+
+*) attack() method of the base class Pokemon is redefined in derived classes ElectricPokemon and PsychicPokemon, therefore override (name hiding) is occurred.
+
+*) Attack methods of each derived pokemons take other object as a parameter, this is an example of parameter visibility:
+
+	attack(ElectricPokemon* const); (PsychicPokemon class)
+	attack(PsychicPokemon* const); (ElectricPokemon class)
+
+
+Arena class contains ElectricPokemon and PsychicPokemon pointers of objects, and this is an example of attribute visibility:
+ 
+	ElectricPokemon* elec_current;
+	PsychicPokemon* psyc_current;
+ 
+*) The relations between Pokemon-ElectricPokemon and Pokemon-PsychicPokemon are inheritance obviously. ("is a" relation) There is no direct relation between Arena and Pokemon classes. The relations between Arena-PsychicPokemon and Arena-ElectricPokemon must be aggregation. ("has a" relation)

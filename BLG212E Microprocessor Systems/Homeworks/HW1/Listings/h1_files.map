@@ -1,0 +1,174 @@
+Component: Arm Compiler for Embedded 6.22 Tool: armlink [5ee90200]
+
+==============================================================================
+
+Section Cross References
+
+    startup_armcm0plus.o(.ARM.exidx.text.Default_Handler) refers to startup_armcm0plus.o(.text.Default_Handler) for [Anonymous Symbol]
+    startup_armcm0plus.o(.text.Reset_Handler) refers to system_armcm0plus.o(.text.SystemInit) for SystemInit
+    startup_armcm0plus.o(.text.Reset_Handler) refers to h1_iterative.o(RECURSIVECODE) for __main
+    startup_armcm0plus.o(.ARM.exidx.text.Reset_Handler) refers to startup_armcm0plus.o(.text.Reset_Handler) for [Anonymous Symbol]
+    startup_armcm0plus.o(.ARM.exidx.text.HardFault_Handler) refers to startup_armcm0plus.o(.text.HardFault_Handler) for [Anonymous Symbol]
+    startup_armcm0plus.o(RESET) refers to startup_armcm0plus.o(.text.Reset_Handler) for Reset_Handler
+    startup_armcm0plus.o(RESET) refers to startup_armcm0plus.o(.text.Default_Handler) for NMI_Handler
+    startup_armcm0plus.o(RESET) refers to startup_armcm0plus.o(.text.HardFault_Handler) for HardFault_Handler
+    system_armcm0plus.o(.text.SystemCoreClockUpdate) refers to system_armcm0plus.o(.data.SystemCoreClock) for SystemCoreClock
+    system_armcm0plus.o(.ARM.exidx.text.SystemCoreClockUpdate) refers to system_armcm0plus.o(.text.SystemCoreClockUpdate) for [Anonymous Symbol]
+    system_armcm0plus.o(.text.SystemInit) refers to system_armcm0plus.o(.data.SystemCoreClock) for SystemCoreClock
+    system_armcm0plus.o(.ARM.exidx.text.SystemInit) refers to system_armcm0plus.o(.text.SystemInit) for [Anonymous Symbol]
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing h1_iterative.o(PARAMETERS), (0 bytes).
+    Removing startup_armcm0plus.o(.text), (0 bytes).
+    Removing startup_armcm0plus.o(.ARM.exidx.text.Default_Handler), (8 bytes).
+    Removing startup_armcm0plus.o(.ARM.exidx.text.Reset_Handler), (8 bytes).
+    Removing startup_armcm0plus.o(.ARM.exidx.text.HardFault_Handler), (8 bytes).
+    Removing system_armcm0plus.o(.text), (0 bytes).
+    Removing system_armcm0plus.o(.text.SystemCoreClockUpdate), (16 bytes).
+    Removing system_armcm0plus.o(.ARM.exidx.text.SystemCoreClockUpdate), (8 bytes).
+    Removing system_armcm0plus.o(.ARM.exidx.text.SystemInit), (8 bytes).
+
+9 unused section(s) (total 56 bytes) removed from the image.
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    __tagsym$$used.0                         0x00000000   Number         0  startup_armcm0plus.o(RESET)
+    h1_iterative.s                           0x00000000   Number         0  h1_iterative.o ABSOLUTE
+    startup_ARMCM0plus.c                     0x00000000   Number         0  startup_armcm0plus.o ABSOLUTE
+    system_ARMCM0plus.c                      0x00000000   Number         0  system_armcm0plus.o ABSOLUTE
+    [Anonymous Symbol]                       0x000000c0   Section        0  startup_armcm0plus.o(.text.Default_Handler)
+    [Anonymous Symbol]                       0x000000c4   Section        0  startup_armcm0plus.o(.text.HardFault_Handler)
+    [Anonymous Symbol]                       0x000000c8   Section        0  startup_armcm0plus.o(.text.Reset_Handler)
+    [Anonymous Symbol]                       0x000000d0   Section        0  system_armcm0plus.o(.text.SystemInit)
+    __arm_cp.1_0                             0x000000d8   Number         4  system_armcm0plus.o(.text.SystemInit)
+    __arm_cp.1_1                             0x000000dc   Number         4  system_armcm0plus.o(.text.SystemInit)
+    weight                                   0x000000e0   Data           0  h1_iterative.o(RECURSIVECODE)
+    RECURSIVECODE                            0x000000e0   Section      148  h1_iterative.o(RECURSIVECODE)
+    profit                                   0x000000ec   Data           0  h1_iterative.o(RECURSIVECODE)
+    knapSack                                 0x00000105   Thumb Code    86  h1_iterative.o(RECURSIVECODE)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv3M$S$PE$A:L22$X:L11$S22$IEEE1$IW$~IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$EBA8$STANDARDLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __Vectors                                0x00000000   Data         192  startup_armcm0plus.o(RESET)
+    Default_Handler                          0x000000c1   Thumb Code     4  startup_armcm0plus.o(.text.Default_Handler)
+    Interrupt0_Handler                       0x000000c1   Thumb Code     4  startup_armcm0plus.o(.text.Default_Handler)
+    Interrupt1_Handler                       0x000000c1   Thumb Code     4  startup_armcm0plus.o(.text.Default_Handler)
+    Interrupt2_Handler                       0x000000c1   Thumb Code     4  startup_armcm0plus.o(.text.Default_Handler)
+    Interrupt3_Handler                       0x000000c1   Thumb Code     4  startup_armcm0plus.o(.text.Default_Handler)
+    Interrupt4_Handler                       0x000000c1   Thumb Code     4  startup_armcm0plus.o(.text.Default_Handler)
+    Interrupt5_Handler                       0x000000c1   Thumb Code     4  startup_armcm0plus.o(.text.Default_Handler)
+    Interrupt6_Handler                       0x000000c1   Thumb Code     4  startup_armcm0plus.o(.text.Default_Handler)
+    Interrupt7_Handler                       0x000000c1   Thumb Code     4  startup_armcm0plus.o(.text.Default_Handler)
+    Interrupt8_Handler                       0x000000c1   Thumb Code     4  startup_armcm0plus.o(.text.Default_Handler)
+    Interrupt9_Handler                       0x000000c1   Thumb Code     4  startup_armcm0plus.o(.text.Default_Handler)
+    NMI_Handler                              0x000000c1   Thumb Code     4  startup_armcm0plus.o(.text.Default_Handler)
+    PendSV_Handler                           0x000000c1   Thumb Code     4  startup_armcm0plus.o(.text.Default_Handler)
+    SVC_Handler                              0x000000c1   Thumb Code     4  startup_armcm0plus.o(.text.Default_Handler)
+    SysTick_Handler                          0x000000c1   Thumb Code     4  startup_armcm0plus.o(.text.Default_Handler)
+    HardFault_Handler                        0x000000c5   Thumb Code     4  startup_armcm0plus.o(.text.HardFault_Handler)
+    Reset_Handler                            0x000000c9   Thumb Code     8  startup_armcm0plus.o(.text.Reset_Handler)
+    SystemInit                               0x000000d1   Thumb Code     8  system_armcm0plus.o(.text.SystemInit)
+    __main                                   0x0000015b   Thumb Code    16  h1_iterative.o(RECURSIVECODE)
+    SystemCoreClock                          0x20000000   Data           4  system_armcm0plus.o(.data.SystemCoreClock)
+    Image$$ARM_LIB_STACK$$ZI$$Limit          0x20040000   Number         0  anon$$obj.o ABSOLUTE
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x0000015b
+
+  Load Region LR_ROM (Base: 0x00000000, Size: 0x00000178, Max: 0x00080000, ABSOLUTE)
+
+    Execution Region ER_ROM (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00000174, Max: 0x00080000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00000000   0x00000000   0x000000c0   Data   RO           17    RESET               startup_armcm0plus.o
+    0x000000c0   0x000000c0   0x00000004   Code   RO           11    .text.Default_Handler  startup_armcm0plus.o
+    0x000000c4   0x000000c4   0x00000004   Code   RO           15    .text.HardFault_Handler  startup_armcm0plus.o
+    0x000000c8   0x000000c8   0x00000008   Code   RO           13    .text.Reset_Handler  startup_armcm0plus.o
+    0x000000d0   0x000000d0   0x00000010   Code   RO           27    .text.SystemInit    system_armcm0plus.o
+    0x000000e0   0x000000e0   0x00000094   Code   RO            3  * RECURSIVECODE       h1_iterative.o
+
+
+    Execution Region RW_NOINIT (Exec base: 0x20000000, Load base: 0x00000174, Size: 0x00000000, Max: 0x0003f200, ABSOLUTE, UNINIT)
+
+    **** No section assigned to this execution region ****
+
+
+    Execution Region RW_RAM (Exec base: 0x20000000, Load base: 0x00000174, Size: 0x00000004, Max: 0x0003f200, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000000   0x00000174   0x00000004   Data   RW           29    .data.SystemCoreClock  system_armcm0plus.o
+
+
+    Execution Region ARM_LIB_HEAP (Exec base: 0x20000008, Load base: 0x00000178, Size: 0x00000c00, Max: 0x00000c00, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000008        -       0x00000c00   Zero   RW            1    ARM_LIB_HEAP.bss    anon$$obj.o
+
+
+    Execution Region ARM_LIB_STACK (Exec base: 0x2003fe00, Load base: 0x00000178, Size: 0x00000200, Max: 0x00000200, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x2003fe00        -       0x00000200   Zero   RW            2    ARM_LIB_STACK.bss   anon$$obj.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+       148         34          0          0          0        496   h1_iterative.o
+        16          0        192          0          0        928   startup_armcm0plus.o
+        16          8          0          4          0        732   system_armcm0plus.o
+
+    ----------------------------------------------------------------------
+       180         42        192          4       3584       2156   Object Totals
+         0          0          0          0       3584          0   (incl. Generated)
+         0          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+         0          0          0          0          0          0   Library Totals
+         0          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+       180         42        192          4       3584       2136   Grand Totals
+       180         42        192          4       3584       2136   ELF Image Totals
+       180         42        192          4          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                  372 (   0.36kB)
+    Total RW  Size (RW Data + ZI Data)              3588 (   3.50kB)
+    Total ROM Size (Code + RO Data + RW Data)        376 (   0.37kB)
+
+==============================================================================
+

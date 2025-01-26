@@ -1,0 +1,1 @@
+Professor Sandikkaya does not allow the sharing of course materials. However, you can at least find the syllabus to get an idea about the course.

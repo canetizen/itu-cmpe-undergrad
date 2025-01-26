@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="generator" content="Docutils 0.16: http://docutils.sourceforge.net/"/>
+<title>Programming</title>
+<meta name="author" content="H. Turgut Uyar"/>
+<script type="text/javascript" src="./mathjax/MathJax.js?config=TeX-AMS_CHTML"></script>
+<script defer src="./impress.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    impress().init();
+  }, false);
+</script>
+<script defer src="../../Projects/kirlent/.venv/lib/python3.9/site-packages/kirlent_docutils/rough-notation.iife.js"></script>
+<script>
+  function annotate(event, element, annotation_type, color) {
+    event.preventDefault();
+    const annot = RoughNotation.annotate(
+      element, { type: annotation_type, color: color }
+    );
+    annot.show();
+  }
+</script>
+<link rel="stylesheet" href="./itucs.css"/>
+</head>
+<body>
+<div data-height="1080" data-width="1920" id="impress">
+
+<div class="slide step" data-rel-x="1920" id="programming">
+<h2 class="title">Programming</h2>
+<div class="content">
+<ul>
+<li><p>a computer <em>program</em> is:</p>
+<ul>
+<li>a collection of instructions</li>
+<li>that can be executed by a computer</li>
+<li>to perform a specific task</li>
+</ul>
+</li>
+</ul>
+<ul class="substep">
+<li>programming: designing and implementing programs</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="machine-code">
+<h2 class="title">Machine Code</h2>
+<div class="content">
+<ul>
+<li>programs consist of machine instructions</li>
+<li><em>machine code</em></li>
+</ul>
+<!--  -->
+<ul>
+<li>instructions encoded as numbers</li>
+<li><span onclick="annotate(event, this, 'box', 'orange')">depends on the processor</span></li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="machine-code-example">
+<h2 class="title">Machine Code Example</h2>
+<div class="content">
+<ul>
+<li>get value in memory location <span>47</span> into processor</li>
+<li>subtract value in memory location <span>62</span> from that</li>
+<li>if result is less than 18,<br/>
+continue with instruction that is 4 positions ahead<br/>
+</li>
+</ul>
+<ul class="substep">
+<li><p>example machine code (in hex):</p>
+<pre>A12F0000002B053E00000083F8127C04</pre>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="source-code">
+<h2 class="title">Source Code</h2>
+<div class="content">
+<ul>
+<li><p>very difficult to write machine code directly</p>
+<ul>
+<li>what instructions are available?</li>
+<li>in which memory locations are the data?</li>
+</ul>
+</li>
+</ul>
+<!--  -->
+<ul>
+<li>write program in a friendlier language</li>
+<li><em>source code</em></li>
+</ul>
+<ul class="substep">
+<li>use a program to convert it to machine code</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="friendlier">
+<h2 class="title">Friendlier?</h2>
+<div class="content">
+<ul>
+<li>more abstract concepts</li>
+</ul>
+<!--  -->
+<ul>
+<li>using names instead of numbers to refer to memory locations</li>
+<li>grouping multiple instructions into <span onclick="annotate(event, this, 'underline', 'orange')">statements</span></li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="conversion-to-machine-code">
+<h2 class="title">Conversion to Machine Code</h2>
+<div class="content">
+<ul>
+<li>source code doesn't depend on processor</li>
+<li>but machine code does</li>
+</ul>
+<!--  -->
+<ul>
+<li>convertor generates machine code<br/>
+<span onclick="annotate(event, this, 'box', 'orange')">for a particular processor</span><br/>
+</li>
+</ul>
+<ul class="substep">
+<li>programmer doesn't have to care</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="portability">
+<h2 class="title">Portability</h2>
+<div class="content">
+<ul>
+<li>write processor-independent source code</li>
+<li>use an appropriate convertor for each target processor</li>
+<li>the source code is <em>portable</em></li>
+</ul>
+<ul class="substep">
+<li>not just the processor, also the operating system</li>
+<li>platform-independent</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="language-levels">
+<h2 class="title">Language Levels</h2>
+<div class="content">
+<ul>
+<li>different source code languages have different levels</li>
+</ul>
+<!--  -->
+<ul>
+<li>closer to platform details: lower level</li>
+<li>closer to human thinking: higher level</li>
+</ul>
+<!--  -->
+<ul>
+<li><em>high-level language</em>: easy enough for humans</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="conversion-methods">
+<h2 class="title">Conversion Methods</h2>
+<div class="content">
+<div class="column width-1-2">
+<ul>
+<li><p>interpreting:</p>
+<ul>
+<li>convert first statement</li>
+<li>execute it</li>
+<li>convert next statement</li>
+<li>execute it</li>
+<li>...</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="column width-1-2">
+<ul>
+<li><p>compiling:</p>
+<ul>
+<li>convert whole source code<br/>
+into executable code<br/>
+</li>
+<li>execute first statement</li>
+<li>execute next statement</li>
+<li>...</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="slide step" id="interpreting">
+<h2 class="title">Interpreting</h2>
+<div class="content">
+<img alt="Diagram that shows stages of interpreted execution. Source code and inputs are fed into the interpreter which produces outputs." src="interpreting.svg" style="width: 24em;"/>
+<ul class="substep">
+<li>conversion during <em>runtime</em></li>
+<li>more flexible than compiling</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="compiling">
+<h2 class="title">Compiling</h2>
+<div class="content">
+<img alt="Diagram that shows stages of compiled execution. Source code is fed into the compiler which produces machine code. Machine code and inputs are fed into the executor which produces outputs." src="compiling.svg" style="width: 32em;"/>
+<ul class="substep">
+<li>conversion during <em>compile time</em></li>
+<li>faster than interpreting</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="programmer-s-workflow">
+<h2 class="title">Programmer's Workflow</h2>
+<div class="content">
+<ol class="arabic">
+<li>edit source code</li>
+<li>compile source code to machine code</li>
+<li>if compilation errors, go to step 1</li>
+<li>run the program and test it</li>
+<li>if incorrect behavior, go to step 1</li>
+</ol>
+</div>
+</div>
+<div class="slide step" id="minimal-program">
+<h2 class="title">Minimal Program</h2>
+<div class="content">
+<ul>
+<li>a program that does nothing:</li>
+</ul>
+<pre>int main() {
+    return 0;
+}</pre>
+</div>
+</div>
+<div class="slide step" id="starting-point">
+<h2 class="title">Starting Point</h2>
+<div class="content">
+<pre>int <span onclick="annotate(event, this, 'underline', 'orange')">main</span>() {
+    return 0;
+}</pre>
+<ul>
+<li>program starts at <code>main</code>: entry point</li>
+<li>every program must have one and exactly one</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="function">
+<h2 class="title">Function</h2>
+<div class="content">
+<pre>int main() <span onclick="annotate(event, this, 'circle', 'orange')">{</span>
+    <span onclick="annotate(event, this, 'box', 'orange')">return 0;</span>
+<span onclick="annotate(event, this, 'circle', 'orange')">}</span></pre>
+<ul>
+<li><code>main</code> is a <em>function</em></li>
+<li>functions consist of statements</li>
+<li>enclosed in curly braces</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="statement">
+<h2 class="title">Statement</h2>
+<div class="content">
+<pre>int main() {
+    return 0<span onclick="annotate(event, this, 'circle', 'orange')">;</span>
+}</pre>
+<ul>
+<li>statements end with a semicolon</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="function-result">
+<h2 class="title">Function Result</h2>
+<div class="content">
+<pre>int main() {
+    <span onclick="annotate(event, this, 'underline', 'orange')">return</span> 0;
+}</pre>
+<ul>
+<li>functions report their results using <code>return</code></li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="program-result">
+<h2 class="title">Program Result</h2>
+<div class="content">
+<pre><span onclick="annotate(event, this, 'circle', 'orange')">int</span> main() {
+    return <span onclick="annotate(event, this, 'circle', 'orange')">0</span>;
+}</pre>
+<ul>
+<li>result of <code>main</code> is the exit status:<br/>
+success (0), failure (1)<br/>
+</li>
+<li><code>int</code> is the type of the result (integer)</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="keywords">
+<h2 class="title">Keywords</h2>
+<div class="content">
+<ul>
+<li>some words in the language have special meaning: <em>keywords</em></li>
+<li><code>int</code>, <code>return</code></li>
+<li>their use is restricted</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="syntax-highlighting">
+<h2 class="title">Syntax Highlighting</h2>
+<div class="content">
+<ul>
+<li>programmer tools use colors and font variations<br/>
+to differentiate between different types of elements<br/>
+</li>
+</ul>
+<pre class="code c"><code><span class="keyword type">int</span> <span class="name function">main</span><span class="punctuation">()</span> <span class="punctuation">{</span>
+    <span class="keyword">return</span> <span class="literal number integer">0</span><span class="punctuation">;</span>
+<span class="punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="slide step" id="hello-world">
+<h2 class="title">Hello, world!</h2>
+<div class="content">
+<ul>
+<li>a program that prints a message:</li>
+</ul>
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+    printf(&quot;Hello, world!\n&quot;);
+    return 0;
+}</pre>
+</div>
+</div>
+<div class="slide step" id="output">
+<h2 class="title">Output</h2>
+<div class="content">
+<ul>
+<li>use the <code>printf</code> function to print a message on the screen</li>
+</ul>
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+    <span onclick="annotate(event, this, 'underline', 'orange')">printf</span>(&quot;Hello, world!\n&quot;);
+    return 0;
+}</pre>
+</div>
+</div>
+<div class="slide step" id="libraries">
+<h2 class="title">Libraries</h2>
+<div class="content">
+<ul>
+<li>implementation for <code>printf</code> is not contained in our code</li>
+<li>commonly used functions are collected into <em>libraries</em></li>
+</ul>
+<!--  -->
+<ul>
+<li><code>printf</code> is part of the <span onclick="annotate(event, this, 'underline', 'orange')">standard library</span></li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="header-files">
+<h2 class="title">Header Files</h2>
+<div class="content">
+<ul>
+<li>to use a function, include its <em>header file</em></li>
+</ul>
+<pre><span onclick="annotate(event, this, 'box', 'orange')">#include &lt;stdio.h&gt;</span>
+
+int main() {
+    printf(&quot;Hello, world!\n&quot;);
+    return 0;
+}</pre>
+</div>
+</div>
+<div class="slide step" id="newline">
+<h2 class="title">Newline</h2>
+<div class="content">
+<ul>
+<li>the <code>\n</code> character is for moving the cursor to the next line</li>
+</ul>
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+    printf(&quot;Hello, world!<span onclick="annotate(event, this, 'circle', 'orange')">\n</span>&quot;);
+    return 0;
+}</pre>
+</div>
+</div>
+<div class="slide step" id="id5">
+<h2 class="title">Syntax Highlighting</h2>
+<div class="content">
+<pre class="code c"><code><span class="comment preproc">#include</span> <span class="comment preprocfile">&lt;stdio.h&gt;</span><span class="comment preproc">
+</span>
+<span class="keyword type">int</span> <span class="name function">main</span><span class="punctuation">()</span> <span class="punctuation">{</span>
+    <span class="name">printf</span><span class="punctuation">(</span><span class="literal string">&quot;Hello, world!</span><span class="literal string escape">\n</span><span class="literal string">&quot;</span><span class="punctuation">);</span>
+    <span class="keyword">return</span> <span class="literal number integer">0</span><span class="punctuation">;</span>
+<span class="punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="slide step" id="comments">
+<h2 class="title">Comments</h2>
+<div class="content">
+<ul>
+<li>it's helpful to explain the code</li>
+<li>for people who will read the code</li>
+</ul>
+<!--  -->
+<ul>
+<li>comments are ignored by language processors</li>
+<li>no effect during runtime</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="line-comments">
+<h2 class="title">Line Comments</h2>
+<div class="content">
+<ul>
+<li>anything from <code>//</code> to the end of the line</li>
+</ul>
+<pre>#include &lt;stdio.h&gt;  <span onclick="annotate(event, this, 'box', 'orange')">// needed for printf</span>
+
+int main() {
+    printf(&quot;Hello, world!\n&quot;);
+    return 0;
+}</pre>
+</div>
+</div>
+<div class="slide step" id="multiline-comments">
+<h2 class="title">Multiline Comments</h2>
+<div class="content">
+<ul>
+<li>anything between <code>/*</code> and <code>*/</code></li>
+<li>can span over multiple lines</li>
+</ul>
+<pre><span onclick="annotate(event, this, 'box', 'orange')">/* (C) H. Turgut Uyar
+   Prints a message on the screen. */</span>
+
+#include &lt;stdio.h&gt;  // needed for printf
+...</pre>
+</div>
+</div>
+<div class="slide step" id="id6">
+<h2 class="title">Syntax Highlighting</h2>
+<div class="content">
+<pre class="code c"><code><span class="comment multiline">/* (C) H. Turgut Uyar
+   Prints a message on the screen. */</span>
+
+<span class="comment preproc">#include</span> <span class="comment preprocfile">&lt;stdio.h&gt;</span><span class="comment single">  // needed for printf</span><span class="comment preproc">
+</span>
+<span class="keyword type">int</span> <span class="name function">main</span><span class="punctuation">()</span> <span class="punctuation">{</span>
+    <span class="name">printf</span><span class="punctuation">(</span><span class="literal string">&quot;Hello, world!</span><span class="literal string escape">\n</span><span class="literal string">&quot;</span><span class="punctuation">);</span>
+    <span class="keyword">return</span> <span class="literal number integer">0</span><span class="punctuation">;</span>
+<span class="punctuation">}</span></code></pre>
+</div>
+</div>
+<div class="slide step" id="code-style">
+<h2 class="title">Code Style</h2>
+<div class="content">
+<ul>
+<li><p>programmers follow <span onclick="annotate(event, this, 'underline', 'orange')">style conventions</span></p>
+<ul>
+<li>lowercase or uppercase letters in names</li>
+<li>spaces for visual separation</li>
+</ul>
+</li>
+</ul>
+<ul class="substep">
+<li>these are not rules: not mandatory</li>
+<li>but following them makes code easier to read</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="different-styles">
+<h2 class="title">Different Styles</h2>
+<div class="content">
+<ul>
+<li>there is no style that everyone agrees on</li>
+<li>different programmers have different preferences</li>
+<li>in a team, members have to agree on a certain style</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="line-length">
+<h2 class="title">Line Length</h2>
+<div class="content">
+<ul>
+<li>lines shouldn't be too long</li>
+<li>requires horizontal scrolling</li>
+</ul>
+<ul class="substep">
+<li>popular value: 80</li>
+<li>can be increased in large monitors</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="whitespace">
+<h2 class="title">Whitespace</h2>
+<div class="content">
+<ul>
+<li><p>whitespace is insignificant:</p>
+<pre class="code c"><code><span class="comment preproc">#include</span> <span class="comment preprocfile">&lt;stdio.h&gt;</span><span class="comment preproc">
+</span>
+<span class="keyword type">int</span> <span class="name function">main</span><span class="punctuation">(){</span><span class="name">printf</span><span class="punctuation">(</span><span class="literal string">&quot;Hello, world!</span><span class="literal string escape">\n</span><span class="literal string">&quot;</span><span class="punctuation">);</span><span class="keyword">return</span> <span class="literal number integer">0</span><span class="punctuation">;}</span></code></pre>
+</li>
+</ul>
+<ul class="substep">
+<li>but this is not readable</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="indentation">
+<h2 class="title">Indentation</h2>
+<div class="content">
+<ul>
+<li><p>statements of a function should start with leading space</p>
+<ul>
+<li>how much space?</li>
+<li>which character to use: space or tab?</li>
+</ul>
+</li>
+</ul>
+<ul class="substep">
+<li>use spaces, not tabs</li>
+<li>4 spaces</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="indentation-example">
+<h2 class="title">Indentation Example</h2>
+<div class="content">
+<ul>
+<li>statements are indented 4 spaces within function</li>
+</ul>
+<pre>int main() {
+<span onclick="annotate(event, this, 'box', 'orange')">    </span>printf(&quot;Hello, world!\n&quot;);
+<span onclick="annotate(event, this, 'box', 'orange')">    </span>return 0;
+}</pre>
+</div>
+</div>
+<div class="slide step" id="indentation-bad-example">
+<h2 class="title">Indentation Bad Example</h2>
+<div class="content">
+<ul>
+<li>statements are not indented</li>
+</ul>
+<pre>int main() {
+<span onclick="annotate(event, this, 'crossed-off', 'red')">printf(&quot;Hello, world!\n&quot;);
+return 0;</span>
+}</pre>
+</div>
+</div>
+<div class="slide step" id="indentation-worse-example">
+<h2 class="title">Indentation Worse Example</h2>
+<div class="content">
+<ul>
+<li>statements are inconsistently indented</li>
+</ul>
+<pre>int main() {
+   <span onclick="annotate(event, this, 'crossed-off', 'red')">printf(&quot;Hello, world!\n&quot;);
+ return 0;</span>
+}</pre>
+</div>
+</div>
+<div class="slide step" id="function-braces">
+<h2 class="title">Function Braces</h2>
+<div class="content">
+<ul>
+<li>where to put curly braces around function statements?</li>
+</ul>
+<div class="column width-1-2">
+<ul>
+<li><p>opening brace</p>
+<ul>
+<li>on the same line</li>
+<li>on the next line</li>
+<li>on the next line, indented</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="column width-1-2">
+<ul>
+<li><p>closing brace</p>
+<ul>
+<li>on the same line</li>
+<li>on the next line</li>
+<li>on the next line, dedented</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="slide step" id="brace-style-example">
+<h2 class="title">Brace Style Example</h2>
+<div class="content">
+<ul>
+<li>opening brace on the same line</li>
+<li>closing brace on the next line, dedented</li>
+</ul>
+<pre>int main() <span onclick="annotate(event, this, 'circle', 'orange')">{</span>
+    printf(&quot;Hello, world!\n&quot;);
+    return 0;
+<span onclick="annotate(event, this, 'circle', 'orange')">}</span></pre>
+</div>
+</div>
+<div class="slide step" id="brace-style-alternative-example">
+<h2 class="title">Brace Style Alternative Example</h2>
+<div class="content">
+<ul>
+<li>opening brace on the next line</li>
+<li>closing brace on the next line, dedented</li>
+</ul>
+<pre>int main()
+<span onclick="annotate(event, this, 'circle', 'orange')">{</span>
+    printf(&quot;Hello, world!\n&quot;);
+    return 0;
+}</pre>
+</div>
+</div>
+<div class="slide step" id="function-parentheses">
+<h2 class="title">Function Parentheses</h2>
+<div class="content">
+<ul>
+<li>whether to put around parentheses after function name</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="function-parentheses-example">
+<h2 class="title">Function Parentheses Example</h2>
+<div class="content">
+<ul>
+<li>no space before, one space after</li>
+</ul>
+<pre>int main() {
+    printf(&quot;Hello, world!\n&quot;);
+    return 0;
+}</pre>
+</div>
+</div>
+<div class="slide step" id="function-parentheses-alternative-examples">
+<h2 class="title">Function Parentheses Alternative Examples</h2>
+<div class="content">
+<div class="column width-1-2">
+<ul>
+<li>space before</li>
+</ul>
+<pre>int main () {
+    ...
+}</pre>
+</div>
+<div class="column width-1-2 substep">
+<ul>
+<li>no space after</li>
+</ul>
+<pre>int main(){
+    ...
+}</pre>
+</div>
+<ul class="substep">
+<li>these styles are not as popular</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="blank-lines">
+<h2 class="title">Blank Lines</h2>
+<div class="content">
+<ul>
+<li>how many blank lines to separate components?</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="blank-lines-example">
+<h2 class="title">Blank Lines Example</h2>
+<div class="content">
+<ul>
+<li>one blank line after <code>#include</code> lines</li>
+</ul>
+<pre><span onclick="annotate(event, this, 'box', 'orange')">#include &lt;stdio.h&gt;</span>
+
+<span onclick="annotate(event, this, 'box', 'orange')">int main() {
+    printf(&quot;Hello, world!\n&quot;);
+    return 0;
+}</span></pre>
+</div>
+</div>
+<div class="slide step" id="blank-lines-bad-example">
+<h2 class="title">Blank Lines Bad Example</h2>
+<div class="content">
+<ul>
+<li>no blank line after <code>#include</code> lines</li>
+</ul>
+<pre>#include &lt;stdio.h&gt;
+int main() {
+    printf(&quot;Hello, world!\n&quot;);
+    return 0;
+}</pre>
+</div>
+</div>
+<div class="slide step" id="building-executables">
+<h2 class="title">Building Executables</h2>
+<div class="content">
+<ul>
+<li><p>executables get built in two stages</p>
+<ul>
+<li>compiling</li>
+<li>linking</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="build-stages">
+<h2 class="title">Build Stages</h2>
+<div class="content">
+<img alt="Diagram that shows the stages of building an executable. Source code is fed into the compiler to produce object code. Object code and libraries are fed into the linker to produce executable code." src="building.svg" style="width: 32em;"/>
+</div>
+</div>
+<div class="slide step" id="build-problems">
+<h2 class="title">Build Problems</h2>
+<div class="content">
+<ul>
+<li>error: no executable gets built</li>
+</ul>
+<ul class="substep">
+<li>warning: executable gets built</li>
+<li>but possibly won't work as intended</li>
+</ul>
+<ul class="substep">
+<li><em>don't ignore warnings</em></li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="syntax-errors">
+<h2 class="title">Syntax Errors</h2>
+<div class="content">
+<ul>
+<li><p>violating the syntax rules of the language</p>
+<ul>
+<li>forgetting semicolons</li>
+<li>not closing parentheses</li>
+<li>not closing quotes</li>
+</ul>
+</li>
+</ul>
+<!--  -->
+<ul>
+<li>error at compile-time</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="forgotten-semicolon">
+<h2 class="title">Forgotten Semicolon</h2>
+<div class="content">
+<div class="column width-3-5">
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+    printf(&quot;Hello, world!\n&quot;)<span onclick="annotate(event, this, 'circle', 'orange')"> </span>
+    return 0;
+}</pre>
+</div>
+<div class="column width-2-5">
+<ul>
+<li>no semicolon at end of printing statement</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="slide step" id="name-errors">
+<h2 class="title">Name Errors</h2>
+<div class="content">
+<ul>
+<li>using undefined names</li>
+<li>warning at compile-time, error at link-time</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="undefined-name">
+<h2 class="title">Undefined Name</h2>
+<div class="content">
+<div class="column width-3-5">
+<pre>#include &lt;stdio.h&gt;
+
+int main() {
+    <span onclick="annotate(event, this, 'box', 'orange')">print</span>(&quot;Hello, world!\n&quot;)
+    return 0;
+}</pre>
+</div>
+<div class="column width-2-5">
+<ul>
+<li><code>print</code> instead of <code>printf</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="slide step" id="case-sensitivity">
+<h2 class="title">Case Sensitivity</h2>
+<div class="content">
+<ul>
+<li>uppercase and lowercase are not the same</li>
+<li>can cause name issues</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="incorrect-case">
+<h2 class="title">Incorrect Case</h2>
+<div class="content">
+<div class="column width-3-5">
+<pre>#include &lt;stdio.h&gt;
+
+int <span onclick="annotate(event, this, 'box', 'orange')">Main</span>() {
+    printf(&quot;Hello, world!\n&quot;);
+    return 0;
+}</pre>
+</div>
+<div class="width-2-5">
+<ul>
+<li><code>Main</code> instead of <code>main</code></li>
+<li>no problem at compile-time,<br/>
+error at link-time<br/>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="slide step" id="algorithm">
+<h2 class="title">Algorithm</h2>
+<div class="content">
+<ul>
+<li><em>algorithm</em>: step by step description of a solution</li>
+<li>like a recipe</li>
+</ul>
+<ul class="substep">
+<li>independent from programming language</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="properties">
+<h2 class="title">Properties</h2>
+<div class="content">
+<ul>
+<li>algorithm must be unambiguous</li>
+<li>precise instructions for each step</li>
+</ul>
+<ul class="substep">
+<li>algorithm must not run forever</li>
+<li>either find a solution, or report that no solution can be found</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="square-root">
+<h2 class="title">Square Root</h2>
+<div class="content">
+<ul>
+<li>finding the square root of a number</li>
+</ul>
+<!--  -->
+<ul>
+<li>start with an initial guess</li>
+<li>repeatedly improve guess</li>
+<li>until the guess is good enough</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="variables">
+<h2 class="title">Variables</h2>
+<div class="content">
+<ul>
+<li>number: <span>\(x\)</span></li>
+<li>guess: <span>\(g\)</span></li>
+<li>improved guess: <span>\(g'\)</span></li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="improving-guess">
+<h2 class="title">Improving Guess</h2>
+<div class="content">
+<ul>
+<li><p>improved guess:</p>
+<div>
+\begin{equation*}
+g' = \frac{g + \frac{x}{g}}{2}
+\end{equation*}
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="termination">
+<h2 class="title">Termination</h2>
+<div class="content">
+<ul>
+<li><p>when is guess good enough?</p>
+<div>
+\begin{equation*}
+g^2 \approx x
+\end{equation*}
+</div>
+</li>
+</ul>
+<ul class="substep">
+<li><p>must be precise:</p>
+<div>
+\begin{equation*}
+|g^2 - x| &lt; 10^{-3}
+\end{equation*}
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="square-root-algorithm">
+<h2 class="title">Square Root Algorithm</h2>
+<div class="content">
+<ul>
+<li>initial guess: <span>\(1\)</span></li>
+</ul>
+<!--  -->
+<ol class="arabic">
+<li><span>\(g = 1\)</span></li>
+<li>if <span>\(|g^2 - x| &lt; 10^{-3}\)</span> then <span>\(g\)</span> is the result, stop</li>
+<li><span>\(g' = \frac{g + \frac{x}{g}}{2}\)</span></li>
+<li>replace <span>\(g\)</span> with <span>\(g'\)</span> and go to step 2</li>
+</ol>
+</div>
+</div>
+<div class="slide step" id="square-root-example">
+<h2 class="title">Square Root Example</h2>
+<div class="content">
+<div class="column width-1-3">
+<ul>
+<li>find: <span>\(\sqrt{3}\)</span></li>
+</ul>
+</div>
+<div class="column width-2-3">
+<ul>
+<li>guesses:</li>
+</ul>
+<p class="substep"><span>\(1\)</span></p>
+<p class="substep"><span>\(\frac{1 + \frac{3}{1}}{2} = 2\)</span></p>
+<p class="substep"><span>\(\frac{2 + \frac{3}{2}}{2} = 1.75\)</span></p>
+<p class="substep"><span>\(\frac{1.75 + \frac{3}{1.75}}{2} \approx 1.732\)</span></p>
+</div>
+</div>
+</div>
+<div class="slide step" id="flowchart">
+<h2 class="title">Flowchart</h2>
+<div class="content">
+<ul>
+<li>algorithm diagram: <em>flowchart</em></li>
+</ul>
+</div>
+</div>
+<div class="slide step" id="shapes">
+<h2 class="title">Shapes</h2>
+<div class="content">
+<div class="column width-1-3">
+<ul>
+<li>statement</li>
+</ul>
+<img alt="A rectangle representing a statement." src="statement.svg" style="width: 6em;"/>
+</div>
+<div class="substep column width-1-3">
+<ul>
+<li>decision</li>
+</ul>
+<img alt="A diamond representing a decision." src="decision.svg" style="width: 6em;"/>
+</div>
+<div class="substep column width-1-3">
+<ul>
+<li>input/output</li>
+</ul>
+<img alt="A parallelogram representing an input/output operation." src="io.svg" style="width: 6em;"/>
+</div>
+<div class="substep column width-1-3">
+<ul>
+<li>start/end</li>
+</ul>
+<img alt="An ellipsis representing the start or end of the algorithm." src="start_end.svg" style="width: 6em;"/>
+</div>
+<div class="substep column width-1-3">
+<ul>
+<li>connector</li>
+</ul>
+<img alt="An arrow representing the connection between two components." src="connector.svg" style="width: 6em;"/>
+</div>
+</div>
+</div>
+<div class="slide step" id="square-root-flowchart">
+<h2 class="title">Square Root Flowchart</h2>
+<div class="content">
+<div class="column width-1-3">
+<img alt="The flowchart of the square root algorithm." src="flowchart-sqrt.svg" style="width: 8em;"/>
+</div>
+<div class="column width-2-5">
+<ul>
+<li>using a code-like notation</li>
+</ul>
+</div>
+<div class="step" data-rel-x="-576" data-rel-y="76" data-rel-z="-400">
+</div></div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+FloorName RoomNo Priority
+Floor_1 Room_1 70
+Floor_1 Room_2 90
+Floor_2 Room_1 80
+Floor_2 Room_2 80
+Floor_3 Room_1 30
+Floor_3 Room_2 35
+Floor_3 Room_3 40

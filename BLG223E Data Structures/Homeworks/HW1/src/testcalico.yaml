@@ -1,0 +1,35 @@
+- compile:
+    run: g++ -g main.cpp ProcessRep.cpp FIFORep.cpp SchedulerRep.cpp CPURep.cpp -I ../include -o ../bin/main
+    exit: 0
+    blocker: true
+    points: 1
+
+- case_1:
+    run: ../bin/main ../case1.txt
+    script:
+      - expect: "RP: A2 WP: A3 -1 -1 A1 0 -1 FP: RP: A3 WP: A1 0 -1 A2 2 -1 FP: RP: A1 WP: A2 2 -1 A3 4 -1 FP: RP: A2 WP: A3 4 -1 A1 0 -1 FP: RP: A3 WP: A1 0 -1 A2 2 -1 FP: RP: A2 WP: A3 4 -1 FP: A1 0 14 RP: A3 WP: FP: A1 0 14 A2 2 16 RP: WP: FP: A1 0 14 A2 2 16 A3 4 18 "
+    points: 2
+
+- case_2:
+    run: ../bin/main ../case2.txt
+    script:
+      - expect: "RP: B1 WP: B2 -1 -1 B3 -1 -1 FP: RP: B2 WP: B3 -1 -1 B1 0 -1 FP: RP: B3 WP: B1 0 -1 B2 4 -1 FP: RP: B1 WP: B2 4 -1 B3 8 -1 FP: RP: B2 WP: B3 8 -1 B1 0 -1 FP: RP: B3 WP: B1 0 -1 B2 4 -1 FP: RP: B2 WP: B3 8 -1 FP: B1 0 28 RP: B3 WP: FP: B1 0 28 B2 4 32 RP: WP: FP: B1 0 28 B2 4 32 B3 8 36 "
+    points: 2
+
+- case_3:
+    run: ../bin/main ../case3.txt
+    script:
+      - expect: "RP: C1 WP: C2 -1 -1 C3 -1 -1 FP: RP: C2 WP: C3 -1 -1 C1 0 -1 FP: RP: C3 WP: C1 0 -1 C2 8 -1 FP: RP: C2 WP: C3 16 -1 FP: C1 0 32 RP: C3 WP: FP: C1 0 32 C2 8 40 RP: WP: FP: C1 0 32 C2 8 40 C3 16 48 "
+    points: 2
+
+- case_4:
+    run: ../bin/main ../case4.txt
+    script:
+      - expect: "RP: A1 WP: B1 5 -1 C1 0 -1 FP: RP: A1 WP: B1 5 -1 C1 0 -1 FP: RP: A1 WP: B1 5 -1 C1 0 -1 FP: RP: B1 WP: C1 0 -1 FP: A1 7 19 RP: B1 WP: C1 0 -1 FP: A1 7 19 RP: B1 WP: C1 0 -1 FP: A1 7 19 RP: C1 WP: FP: A1 7 19 B1 5 29 RP: WP: FP: A1 7 19 B1 5 29 C1 0 36 "
+    points: 2
+
+- case_5:
+    run: ../bin/main ../case5.txt
+    script:
+      - expect: "RP: C1 WP: FP: RP: C1 WP: C2 -1 -1 FP: RP: C2 WP: C3 -1 -1 FP: C1 0 8 RP: C3 WP: C2 8 -1 C4 -1 -1 FP: C1 0 8 RP: B1 WP: C4 -1 -1 C3 16 -1 C2 8 -1 FP: C1 0 8 RP: B1 WP: B2 -1 -1 C4 -1 -1 C3 16 -1 C2 8 -1 FP: C1 0 8 RP: B2 WP: B3 -1 -1 C4 -1 -1 C3 16 -1 C2 8 -1 FP: C1 0 8 B1 25 49 RP: B4 WP: C3 16 -1 C2 8 -1 C4 85 -1 FP: C1 0 8 B1 25 49 B2 41 69 B3 61 85 RP: B5 WP: C2 8 -1 C4 85 -1 C3 16 -1 FP: C1 0 8 B1 25 49 B2 41 69 B3 61 85 B4 90 120 RP: B6 WP: C4 85 -1 C3 16 -1 C2 8 -1 FP: C1 0 8 B1 25 49 B2 41 69 B3 61 85 B4 90 120 B5 120 150 RP: A1 WP: B6 150 -1 C4 85 -1 C3 16 -1 C2 8 -1 FP: C1 0 8 B1 25 49 B2 41 69 B3 61 85 B4 90 120 B5 120 150 RP: A2 WP: A1 160 -1 B6 150 -1 C4 85 -1 C3 16 -1 C2 8 -1 FP: C1 0 8 B1 25 49 B2 41 69 B3 61 85 B4 90 120 B5 120 150 RP: A2 WP: A1 160 -1 A3 -1 -1 B6 150 -1 C4 85 -1 C3 16 -1 C2 8 -1 FP: C1 0 8 B1 25 49 B2 41 69 B3 61 85 B4 90 120 B5 120 150 RP: A1 WP: A3 -1 -1 A2 164 -1 B6 150 -1 C4 85 -1 C3 16 -1 C2 8 -1 FP: C1 0 8 B1 25 49 B2 41 69 B3 61 85 B4 90 120 B5 120 150 RP: A3 WP: A2 164 -1 A1 160 -1 B6 150 -1 C4 85 -1 C3 16 -1 C2 8 -1 FP: C1 0 8 B1 25 49 B2 41 69 B3 61 85 B4 90 120 B5 120 150 RP: A3 WP: A2 164 -1 B6 150 -1 C4 85 -1 C3 16 -1 C2 8 -1 FP: C1 0 8 B1 25 49 B2 41 69 B3 61 85 B4 90 120 B5 120 150 A1 160 178 RP: C4 WP: C3 16 -1 C2 8 -1 FP: C1 0 8 B1 25 49 B2 41 69 B3 61 85 B4 90 120 B5 120 150 A1 160 178 A2 164 186 A3 172 190 B6 150 210 RP: WP: FP: C1 0 8 B1 25 49 B2 41 69 B3 61 85 B4 90 120 B5 120 150 A1 160 178 A2 164 186 A3 172 190 B6 150 210 C2 8 233 C4 85 240 C3 16 244 "
+    points: 2   

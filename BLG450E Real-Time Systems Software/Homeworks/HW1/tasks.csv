@@ -1,0 +1,9 @@
+TaskName,ReleaseTime,Period,ExecutionTime,Deadline
+Task1,0,15,3,15
+Task2,0,20,4,20
+Task3,5,25,5,25
+Task4,10,30,6,30
+Task5,12,18,2,18
+Task6,15,22,3,22
+Task7,20,35,4,35
+Task8,25,40,5,40

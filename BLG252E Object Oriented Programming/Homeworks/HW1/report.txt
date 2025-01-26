@@ -1,0 +1,13 @@
+/* @Author
+ * Student Name:  Mustafa Can Caliskan
+ * Student ID : 150200097
+ */
+
+1-) university_array[3].evaluate_student(student3) --> "evaluate_student()" method is invoked by "university_array[3]" object, and student3 object is sent to this method as an argument. 
+2-) student.get_gpa(), student.get_gre(), student.get_toefl() --> get_gpa(), get_gre(), get_toefl() methods are invoked by student3, and no argument is sent to these methods.
+3-) student.get_name() --> get_name() method is invoked by student3, and no argument is sent to this method.
+4-) student.get_n_applications() --> get_n_applications() method is invoked by student3, and no argument is sent to this method.
+5-) student.set_n_applications(student.get_n_applications() + 1) --> set_n_applications() method is invoked by student3, and "student.get_n_applications() + 1" is sent as an argument to this method.
+6-) ~Student() --> this method is invoked by student4 object, and it takes no argument.
+7-) ~Student() --> this method is invoked by student3, student2 and student1 respectively, and it takes no argument.
+8-) ~University() --> this method is created by compiler automatically, and invoked by each "university_array" array objects.
