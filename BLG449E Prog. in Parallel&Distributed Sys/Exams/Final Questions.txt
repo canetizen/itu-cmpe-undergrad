@@ -1,0 +1,9 @@
+Explain the concepts of speedup, efficiency, and scalability within the context of parallel computing.
+
+Write an MPI program that calculates the squares of the first p even numbers using MPI_Send and MPI_Recv. The number of processors is p.
+
+Write an MPI program that calculates the sum of the first n natural numbers using MPI_Scatter and MPI_Gather.
+
+Write an OpenMP program that calculates the value of π using numerical integration. (serial version of the code is given.)
+
+Write an MPI program that performs a ring-based rotation starting from rank 0, where each process adds +1 to the same buffer during each rotation according to rank order. The rotation should complete a full circle and return to rank 0, where the final result is printed.

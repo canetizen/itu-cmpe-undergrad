@@ -1,0 +1,13 @@
+1- State Amdahl’s Law and Gustafson’s Law of Speedup. Explain the difference between the two.
+
+2- Is it possible to end up in a deadlock in a parallel program? If yes, give an example and explain. If not, explain why deadlock is impossible.
+
+3- Assuming that 8 processes can be assigned to each core of a multicore machine, which system calls would you use to count the number of each character in a given long list of characters? Write pseudo-code for your implementation. Mention the use of system calls for interprocess communication.
+
+4- Write a parallel program in C using MPI (use MPI_Scatter and MPI_Gather for data distribution and collection) to calculate the sum of the first positive n numbers on p processors. Assume that n is divisible by p.
+
+5- Assume that an MPI program is running on an n-dimensional hypercube to find the smallest number. Each node produces a local minimum. Write a block of code to produce the global minimum at node 0 (i.e., the one with rank 0), optimized for time. (Do not use MPI_Reduce)
+
+6- Write a parallel program in C using MPI to remove zeros from a given array. The non-zero elements should be stored in the same array as index-value pairs. (Example: 5,4,0,0,0,1,0,0,2,0 → 0,5 1,4 5,1 8,2 )
+
+7- Write a parallel program in C to count the number of words in a file. Split the file into an equal number of lines for distribution. Assume the file size is evenly divisible by the number of processes. What kind of problems can occur?

@@ -1,0 +1,13 @@
+Parallel and Distributed Systems Programming – Midterm 2 Questions
+
+15 points) State Amdahl's Law and Gustafson's Law of speedup. Explain the difference between the two.
+
+10 points) How do you model a message-passing parallel architecture? Discuss the performance of Hypercube, Star, and Mesh architectures with regard to your model.
+
+25 points) Assume an MPI program is used to find the smallest number in an n-dimensional hypercube. Each node produces a local minimum. Write a block of code to produce the global minimum at node 0, optimized for time. (Do not use MPI_Reduce.)
+
+20 points) Write a program in OpenMP to compute the dot product.
+
+30 points) Word search is a simple game to find words in a matrix of letters.
+Words can be found in 8 directions. For a given n × m matrix of letters and a given maximum length of words, write a program in MPI to find the words and print them on the user screen. The output should include the coordinates of the beginning of the word and the direction (e.g., E, NW, etc.).
+Although there are multiple ways to implement the problem in parallel, you are not supposed to split the list of words (i.e., the search matrix must be split instead).

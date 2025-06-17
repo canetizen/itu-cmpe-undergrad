@@ -1,0 +1,3 @@
+https://cs.purdue.edu/homes/ayg/book/Slides
+
+https://github.com/canetizen/parallel-demos
