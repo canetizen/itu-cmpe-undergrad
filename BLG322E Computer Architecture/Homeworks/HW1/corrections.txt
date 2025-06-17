@@ -1,0 +1,19 @@
+The sentence "Similarly, suboperation Y2 can also execute in parallel with X3 or X4." should be corrected to "Similarly, suboperation Y2 can also execute in parallel with X2 or X3."
+
+In general, you can place pipeline registers at certain points to separate the circuit into different stages. However, there are some guidelines to keep in mind:
+
+- Any edge between two sub operators can hold a pipeline register. A “sub operator” here means a block of combinational logic that implements a portion of the task.
+
+- Registers will hold the resulting value of the operation(s) in that stage. In other words, everything that happens in one pipeline stage is captured by the register(s) at the end of that stage.
+
+- You can attach multiple registers in parallel to capture outputs from parallel suboperations in the same stage.
+
+- But, registers connected in series (i.e., downstream of each other) define separate pipeline stages.
+
+- You are not forced to put a register after every single sub operator. In many cases, putting multiple sub operators in the same stage is beneficial.
+
+- Using more registers doesn’t necessarily lead to better performance. Sometimes you need to merge stages/remove registers to avoid lengthening the pipeline with excessive overhead.
+
+- Importantly, to get the pipeline’s final output, you do need at least one register at the end. This register captures the result of the final pipeline stage.
+
+You cannot split the suboperations in the diagram. You also cannot change their order. The structure must remain as it is. You only need to divide the structure into stages and place registers where you see fit.
